@@ -1,0 +1,488 @@
+/*Parrafo*/
+.parrafo
+{
+  color: rgb(0, 0, 0);
+  font-family: 'Tilt Warp', cursive;
+}
+
+/*Titulo*/
+.titulo{
+  color: rgb(255, 255, 255);
+  font-family: 'Righteous', cursive; 
+  background-color: #000000a9; 
+}
+
+/*Fondo play*/
+.fondoP
+{
+  background-image: url("../img/PLAYSTATION/FondoPlay.png") ;
+  background-color: rgba(84, 12, 199, 0.555);
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+/*Fondo Xbox*/
+.fondoX
+{
+  background-image: url("../img/XBOX/fondo.jpg") ;
+  background-color: rgba(84, 12, 199, 0.555);
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+/*Fondo Nintendo*/
+.fondoN
+{
+  background-image: url("../img/NINTENDO/fondoNintendo.png") ;
+  background-color: rgba(84, 12, 199, 0.555);
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+/*Fondo PC*/
+.fondoPC
+{
+  background-image: url("../img/PC/fondoPC.jpg") ;
+  background-color: rgba(84, 12, 199, 0.555);
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+/*Fondo de Pantalla principal*/
+.fondoPP{
+  background-image: url("../img/PantallaPrincipal/fondoPantallaPrincipal.jpg") ;
+  background-color: rgba(84, 12, 199, 0.555);
+}
+
+/*Fondo pantallas de login*/
+.fondoLo{
+  background-color: rgb(98, 247, 247);
+}
+
+/*Fondos de videoJuegos de play*/
+.fondoVJP{
+  background-color: #0062cc;
+}
+/*Fondos de videoJuegos de xbox*/
+.fondoVJX{
+  background-color: rgb(14, 96, 14);
+}
+/*Fondos de videoJuegos de nintendo*/
+.fondoVJN{
+  background-color: rgb(163, 0, 0);
+}
+/*Fondos de videoJuegos de pc*/
+.fondoVJPC{
+  background-color: rgb(2, 155, 142);
+}
+
+/*centrado de imagenes*/
+.img
+{ 
+
+width: 70%;
+max-width: 500px;
+}
+
+/*centrado de pagina*/
+.centrar
+{
+    text-align: center;
+}
+
+/*letra play*/
+.letrap
+{
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+}
+
+/*Letra logins*/
+.letraLo{
+  font-family: 'PT Serif', serif;
+  color: rgb(14, 13, 13);
+  padding-left: 5%;
+}
+
+/*letra nintendo*/
+.letraN
+{
+
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+}
+/*letra xbox*/
+.letraX
+{
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+}
+
+/*letra PC*/
+.letraPC
+{
+  color: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
+}
+
+/*Letra titulo*/
+.letraT{
+  font-family: 'Lora', serif;
+  background-color: rgb(137, 27, 240);
+  color:rgb(245, 245, 245);
+}
+
+/*Letra VideoJuego*/
+.letraVJ{
+  color: rgba(0, 0, 0, 0.877);
+  font-family: 'PT Sans Narrow', sans-serif;
+
+}
+/*Estilo de tablas*/
+table, th, td {
+  border: 2px solid rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-family: 'Josefin Sans', sans-serif;  
+}
+
+/*colocar parrafo a la derecha*/
+
+.derecha{
+  text-align: right;
+}
+
+/*algunas imagenes*/
+.AI{
+  width:300; height:250;
+}
+/*Logo youtube*/
+
+.logoY{
+  width:50px;height:40px;
+
+}
+
+/*Cursor Xbox*/
+
+.cuX{
+  cursor: url(../img/CURSOR/cursor_Xbox1.png),auto; 
+  
+}
+.cuX1{
+  cursor: url(../img/CURSOR/cursor_Xbox.png), auto;
+}
+
+/*Cursor Play*/
+.cuP{
+  cursor: url(../img/CURSOR/cursor_play.png),auto;
+}
+.cuP1{
+  cursor: url(../img/CURSOR/cuP1.png),auto;
+}
+
+/*Cursor PC*/
+.cuPC{
+  cursor: url(../img/CURSOR/cuPC.png),auto;
+}
+.cuPC1{
+  cursor: url(../img/CURSOR/cuPC1.png),auto;
+}
+
+/*Cursor Nintendo*/
+.cuN{
+  cursor: url(../img/CURSOR/cuN.png),auto;
+}
+.cuN1{
+  cursor: url(../img/CURSOR/cuN1.png),auto;
+}
+
+/*Margen iniciar*/
+.margenI{
+  margin-left: 110px;
+}
+
+/*Perfiles*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgb(252, 236, 235);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: rgb(29, 100, 102);
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: rgb(255, 255, 255);
+  background-color: #050505;
+  text-align: center;
+  cursor: pointer;
+  width: 50px;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: rgb(12, 12, 12);
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+/*Perfiles ver perfil*/
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: rgb(255, 255, 255);
+  transform: rotateY(180deg);
+}
+  
+/*posible cambio, añadiir estilo a inicio de sesion*/
+:root {
+  --colorTextos: #49454567;
+}
+
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.h1{
+  text-align: center;
+  font-weight: 700;
+}
+
+.fondoform{
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 0;
+  box-shadow: 0 0 6px 0 #ffffffcc;
+  border-radius: 10px;
+}
+
+.form{
+  width: 99%;
+  margin: auto;
+}
+
+.grupo{
+  position: relative;
+  margin: 45px ;
+}
+
+input{
+  background: none;
+  color: #c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--colorTextos);
+}
+
+
+
+input:focus{ 
+  outline: none;
+  color: #5e5d5d;
+}
+
+.label{
+  color: var(--colorTextos);
+  font-size: 16px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transition: 0.5s ease all;
+  pointer-events: none;
+}
+
+input:focus~label,
+input:valid~label{
+  top: -14px;
+  font-size: 12px;
+  color: #2196f3;
+}
+
+.barra{
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.barra::before{
+  content: "";
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  position: absolute;
+  transition: 0.3s ease width;
+  left: 0;
+}
+
+input:focus~.barra::before{
+  width: 100%;
+}
+
+.warnings{
+  width: 100%;
+  text-align: left;
+  color: #070652;
+  padding-top: 10px;
+}
+
+.buttonlogin{
+  border: none;
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  color: #fff;
+  height: 40px;
+  
+ 
+}
+
+@media screen and (max-width:500px){
+  .form{
+      width: 80%;
+  }
+}
+.sesion{
+  display: flex;
+}
+.titulodestacado{
+  background:rgba(156, 156, 156, 0.9); 
+  color:white; 
+  font-weight:bold; 
+  padding:15px; 
+  border:3px solid #797777;
+  margin-top:40px; 
+  margin-bottom:40px; 
+  text-align:center; 
+  font-size:22px; 
+  border-radius:10px;
+}
+/* posible slide*/
+.container.gallery-container {
+  background-color: rgba(255, 255, 255, 0.89);
+  color: #35373a;
+  min-height: 100vh;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-container h1 {
+  text-align: center;
+  margin-top: 70px;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold;
+}
+
+.gallery-container p.page-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 25px auto;
+  color: #888;
+  font-size: 18px;
+}
+
+.tz-gallery {
+  padding: 40px;
+}
+
+.tz-gallery .lightbox img {
+  width: 100%;
+  margin-bottom: 30px;
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+
+.tz-gallery .lightbox img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.tz-gallery img {
+  border-radius: 4px;
+}
+
+.baguetteBox-button {
+  background-color: transparent !important;
+}
+
+
+@media(max-width: 768px) {
+  body {
+      padding: 0;
+  }
+
+  .container.gallery-container {
+      border-radius: 0;
+  }
+}
+
+
+/*textarea*/
+.textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  width: 100%;
+}

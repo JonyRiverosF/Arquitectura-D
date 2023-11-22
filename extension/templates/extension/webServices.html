@@ -1,0 +1,77 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Web Services</title>
+{% endblock titulo %}
+
+
+{% block JQuery %}
+<!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock JQuery %}
+    
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+{% endblock fonts %}    
+
+
+    
+    
+{% block WebServices %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        //agrego evento click al botón
+        $("#consultar").click(function(){
+            //metodo get para el servicio web y una variable data para guardar el JSON
+            $.get("https://www.feriadosapp.com/api/laws.json",function(data){
+                //ciclo for para recorrer el JSON y guarda cada elemento de la lista en la variable item
+                $.each(data.data,function(i,item){
+                    $("#table").append("<tr>"+
+                                            "<td>"+ item.id +"</td>"+
+                                            "<td>"+ item.title +"</td>"+
+                                            "<td>"+ item.content +"</td>"+
+                                            "<td> "+"<a href='"+item.link+"'>Link</a>"+"</td>"+
+                                            "</tr>");
+                });
+            });
+        });
+    });
+    </script>
+{% endblock WebServices %}    
+    
+{% block fondo %}
+<body class="fondoPP">
+{% endblock fondo %} 
+
+{% block cuerpo %}
+<div class="container">
+            <div class="row" style="text-align: center;margin-top: 5%;">
+                <div class="col-md-12 col-sm-12">
+                    <h1 class="titulo">Web Services Dias Feriados</h1><br>
+                  <input type="button" class="btn btn " id="consultar" value="Consultar " 
+                  style="width: 30%;;text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);"></input>
+                </div>
+            </div><br>
+    
+                
+            <div class="row">
+                <div class="table-responsive">
+                <table class="table  centrar  letraVJ" style="background-color: rgb(255, 255, 255);" id="table">
+                    <tr>
+                      <th>ID</th>
+                      <th>TÍTULO</th>
+                      <th>DESCRIPCIÓN</th>
+                      <th>LINKS REFERENCIAS</th>
+                    </tr>
+            </table>
+            </div>
+            </div><br>
+
+
+        </div>
+{% endblock cuerpo %}
+        

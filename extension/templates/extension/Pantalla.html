@@ -1,0 +1,190 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Pantalla Principal</title>
+{% endblock titulo %}
+    
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">    
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+
+{% endblock fonts %}    
+
+{% block fondo %}
+<body class="fondoPP">
+{% endblock fondo %} 
+
+{% block Pantalla %}
+<a class="navbar-brand" href="{% url 'Pantalla' Panta.idUsuario %}"  style="margin-left: 25px;" >Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+{% endblock Pantalla %}
+
+{% block nintendo %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Nintendo' Panta.idUsuario %}">Nintendo</a>
+</li>
+{% endblock nintendo %}
+
+{% block Xbox %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'xbox' Panta.idUsuario %}">Xbox</a>
+</li>
+{% endblock Xbox %}
+
+{% block Play %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Play' Panta.idUsuario %}">PlayStation</a>
+</li>
+{% endblock Play %}
+
+{% block PC %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Pc' Panta.idUsuario %}">PC</a>
+</li>
+{% endblock PC %}
+
+{% block Contacto %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' Panta.idUsuario %}">Contactanos</a>
+</li>
+{% endblock Contacto %}
+
+{% block verperfil %}
+<a class="dropdown-item " href="{% url 'VerPerfil' Panta.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %}
+
+{% block Modificarperfil %}
+<a class="dropdown-item " href="{% url 'ModificarP' Panta.idUsuario %}">Modificar Perfil</a>
+{% endblock Modificarperfil %}
+     
+{% block cuerpo %}
+<div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h5 style="border-radius: 10px;
+          background: #ffffffc9;
+          padding: auto;
+          width: auto;
+          height: auto; color: rgb(0, 0, 0); " class="centrar">GameTopia es una de las mejores páginas de juegos.
+                    Descubre nuestra selección de juegos que convertirán tu navegador en la mejor plataforma de
+                    diversión.
+                    GameTopia es la página de juegos más completa, en la que encontrarás toda la diversión a un clic de
+                    distancia. ¿A qué esperas para explorar?</h5>
+            </div>
+        </div><br><br>
+
+            <h1 style="margin-top: -17px;padding-top: 20px;background-color: rgba(235, 235, 235, 0.817);text-align: center;">Destacados de cada plataforma</h1><br>
+            <br><br>
+            {% if user.is_authenticated %} 
+                <a class="cuN1" href="{% url 'Nintendo' Panta.idUsuario %}"  >
+                    <p class="page-description" style="font-size: x-large;background-color: rgba(253, 2, 2, 0.815);color: rgb(0, 0, 0);text-align: center;">NINTENDO</p>
+                </a>
+            {% else %}                 
+                <a class="cuN1" href="{% url 'Nintendo' 0 %}"  >
+                    <p class="page-description" style="font-size: x-large;background-color: rgba(253, 2, 2, 0.815);color: rgb(0, 0, 0);text-align: center;">NINTENDO</p>
+                </a>
+            {% endif %} 
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 centrar">
+                    <a class="cuN1 img" href="{% url 'Animal' VideoH.id_videojuego %}" >
+                    <img src="{{VideoH.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoH.nombreV }}</p></a>
+                </div>
+                <div class="col-md-6 col-sm-6 centrar">
+                    <a class="cuN1 img" href="{% url 'Animal' VideoG.id_videojuego %}" >
+                    <img src="{{VideoG.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoG.nombreV }}</p></a>
+                </div>
+            </div>
+                <br><br>
+                {% if user.is_authenticated %} 
+                    <a class="cuX1" href="{% url 'xbox' Panta.idUsuario %}" >
+                        <p class="page-description" style="font-size: x-large;background-color: rgba(0, 95, 51, 0.815);color: rgb(0, 0, 0);text-align: center;">XBOX</p>
+                    </a>
+                {% else %}                 
+                    <a class="cuX1" href="{% url 'xbox' 0 %}" >
+                        <p class="page-description" style="font-size: x-large;background-color: rgba(0, 95, 51, 0.815);color: rgb(0, 0, 0);text-align: center;">XBOX</p>
+                    </a>
+                {% endif %} 
+                
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 centrar">
+                            <a class="cuX1" href="{% url 'DeadR' VideoJ.id_videojuego %}" >
+                            <img  src="{{VideoJ.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoJ.nombreV }}</p></a>
+                        </div>
+                        <div class="col-md-6 col-sm-6 centrar">
+                            <a class="cuX1" href="{% url 'DeadR' VideoT.id_videojuego %}" >
+                            <img   src="{{VideoT.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoT.nombreV }}</p></a>
+                        </div> 
+                    </div>
+                    <br><br>
+                    {% if user.is_authenticated %} 
+                        <a class="cuPC1" href="{% url 'Pc' Panta.idUsuario %}" >
+                            <p class="page-description" style="font-size: x-large;background-color: rgba(131, 24, 180, 0.719);color: rgb(0, 0, 0);text-align: center;">PC</p>
+                        </a>
+                    {% else %}                 
+                        <a class="cuPC1" href="{% url 'Pc' 0 %}" >
+                            <p class="page-description" style="font-size: x-large;background-color: rgba(131, 24, 180, 0.719);color: rgb(0, 0, 0);text-align: center;">PC</p>
+                        </a>
+                    {% endif %} 
+                
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 centrar">
+                            <a class="cuPC1" href="{% url 'BMesa' VideoM.id_videojuego %}" >
+                            <img src="{{VideoM.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoM.nombreV }}</p></a>
+                        </div>
+                        <div class="col-md-6 col-sm-6 centrar">
+                            <a class="cuPC1" href="{% url 'BMesa' VideoN.id_videojuego %}" >
+                            <img src="{{VideoN.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoN.nombreV }}</p></a>
+                        </div>
+                    </div>
+                    <br><br>
+                    {% if user.is_authenticated %} 
+                        <a class="cuP1" href="{% url 'Play' Panta.idUsuario %}" >
+                            <p class="page-description" style="font-size: x-large;background-color: rgba(10, 42, 148, 0.815);color: rgb(0, 0, 0);text-align: center;">PLAYSTATION</p>
+                        </a>
+                    {% else %}                 
+                        <a class="cuP1" href="{% url 'Play' 0 %}" >
+                            <p class="page-description" style="font-size: x-large;background-color: rgba(10, 42, 148, 0.815);color: rgb(0, 0, 0);text-align: center;">PLAYSTATION</p>
+                        </a>
+                    {% endif %} 
+                        
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 centrar">
+                            <a class="cuP1" href="{% url 'Batman' VideoP.id_videojuego %}" >
+                            <img src="{{VideoP.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoP.nombreV }}</p></a>
+                        </div>
+                        <div class="col-md-6 col-sm-6 centrar">
+                            <a class="cuP1" href="{% url 'Batman' VideoL.id_videojuego %}" >
+                            <img src="{{VideoL.foto.url}}"  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX">{{ VideoL.nombreV }}</p></a>
+                        </div>   
+                    </div><br>
+
+        <p style="text-align: center;background-color: #ffffff;;"><a href="{% url 'WebServices' %}">🢂🢂🢂¿Quieres saber el
+                porque los días son festivos?🢀🢀🢀</a></p><br><br><br>
+
+
+
+
+</div>
+{% endblock cuerpo %}
+
+    
+
+
+    
+{% block script %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.tz-gallery');
+    </script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+{% endblock script %}

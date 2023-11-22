@@ -1,2 +1,2 @@
-# Arquitectura:D
+# Arquitectura
  

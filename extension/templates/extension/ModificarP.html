@@ -1,0 +1,137 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Modifica tu perfil</title>
+{% endblock titulo %}
+
+
+{% block JQuery %}
+<!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock JQuery %}
+    
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+{% endblock fonts %}    
+
+{% block fondo %}
+<body class="fondoPP">
+{% endblock fondo %}
+
+{% block Pantalla %}
+<a class="navbar-brand" href="{% url 'Pantalla' ModificarP.idUsuario %}"  style="margin-left: 25px;" >Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+{% endblock Pantalla %}
+
+{% block nintendo %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Nintendo' ModificarP.idUsuario %}">Nintendo</a>
+</li>
+{% endblock nintendo %}
+
+{% block Xbox %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'xbox' ModificarP.idUsuario %}">Xbox</a>
+</li>
+{% endblock Xbox %}
+
+{% block Play %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Play' ModificarP.idUsuario %}">PlayStation</a>
+</li>
+{% endblock Play %}
+
+{% block PC %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Pc' ModificarP.idUsuario %}">PC</a>
+</li>
+{% endblock PC %}
+
+{% block Contacto %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' ModificarP.idUsuario %}">Contactanos</a>
+</li>
+{% endblock Contacto %}
+
+{% block verperfil %}
+<a class="dropdown-item " href="{% url 'VerPerfil' ModificarP.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %}
+
+{% block Modificarperfil %}
+<a class="dropdown-item " href="{% url 'ModificarP' ModificarP.idUsuario %}">Modificar Perfil</a>
+{% endblock Modificarperfil %}
+
+    
+{% block cuerpo %}
+<div class="container" class="fondo">
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-12 col-sm-12">
+                
+                <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" enctype="multipart/form-data">
+                  
+                  {% csrf_token %}
+
+                  <h1  class="centrar , letraLo ,cu ">Modificar perfil</h1>
+
+                  <div class="grupo">
+                    <label for="" ><h5 style="color: #2196f3;">Foto actual</h5></label><br>
+                    <img src="{{ ModificarP.fotoU.url }}"  alt="Avatar" style="width:150px;height:150px;">
+                    </div>
+
+                  <div class="grupo">
+                   <input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" name="fotoMP" id="fotoMP" style="color: #2196f3"><span class="barra" ></span>
+                    <label for=""><h5>Cambiar foto de perfil</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <input type="text" readonly name="emailM" id="emailM" value="{{ ModificarP.correo }}"><span class="barra" ></span>
+                  <label for=""><h5>Correo actual</h5></label>
+                </div>
+                <div class="grupo">
+                  <input type="text"  name="nombreM" id="nombreM" value="{{ ModificarP.nombreU }}"><span class="barra" ></span>
+                  <label for=""><h5>Nombre</h5></label>
+                </div>
+                <div class="grupo">
+                  <input type="text"  name="apellidoM" id="apellidoM" value="{{ ModificarP.apellido }}"><span class="barra" ></span>
+                  <label for=""><h5>Apellido</h5></label>
+                </div>
+                <div class="grupo">
+                  <input type="text"  name="telefonoM" id="telefonoM" value="{{ ModificarP.telefono }}"><span class="barra" ></span>
+                  <label for=""><h5>Telefono</h5></label>
+                </div>
+                    
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                      </div>
+                      <div class="col-md-6">
+
+                        <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                      </div>
+                    </div><br>
+
+                    <p class="warnings" id="mensaje_modificarP"></p>
+                    
+                </form>
+            </div></div><br><br>
+      
+          
+    </div>    
+{% endblock cuerpo %}
+    
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+{% endblock script %}   
+    
+{% block validaciones %}
+<script src="{% static 'extension/Validaciones/modificarP.js' %}"></script>
+{% endblock validaciones %}

@@ -1,0 +1,83 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Olvidado</title>
+{% endblock titulo %}
+
+
+{% block JQuery %}
+<!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock JQuery %}
+    
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+{% endblock fonts %}    
+
+{% block fondo %}
+<body class="fondoPP">
+{% endblock fondo %} 
+    
+    
+{% block cuerpo %}
+<div class="container-fluid" class="fondo"><br><br><br>
+    <div class="row">
+        <div class="col-md-3 col-sm-3"></div>
+        <div class="col-md-6 col-sm-6" style="margin-top: 80px;">
+
+          <form action="{% url 'formOlvidado' %}" method="POST" name="formOlvidado" id="formOlvidado" class="fondoform">
+            {% csrf_token %}
+            <div class="form">
+                <h1 class="centrar letraLo">¿Olvidaste tu contraseña?</h1>
+                <div class="grupo">
+                    
+                    <label>Preguntas de seguridad</label>
+                   <select class="form-control" name="pregunta" id="pregunta">
+                       {% for x in preguntas %}
+                       <option value="{{ x.id_pregunta }}">{{ x.nombreP }}</option>
+                       {% endfor %}
+                   </select>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="respuestas" id="respuestas"><span class="barra"  ></span>
+                    <label for=""><h5>Escriba su respuesta para saber que es usted.</h5></label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="emailO" id="emailO"><span class="barra" ></span>
+                    <label for=""><h5>Escriba su correo:</h5></label>
+                  </div>
+                <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+
+                <p class="warnings" id="mensaje_Olvidado"></p>
+                {% if messages %}
+                <ul   class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+          </form>
+                
+        </div>
+
+
+
+
+
+</div>
+{% endblock cuerpo %}
+    
+       
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+{% endblock script %}
+
+{% block validaciones %}
+<script src="{% static 'extension/Validaciones/olvidado.js' %}"></script>    
+{% endblock validaciones %}

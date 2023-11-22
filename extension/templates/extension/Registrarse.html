@@ -1,0 +1,123 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Registrarse</title>
+{% endblock titulo %}
+
+
+{% block JQuery %}
+<!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{% endblock JQuery %}
+    
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+{% endblock fonts %}    
+
+{% block fondo %}
+<body class="fondoPP">
+{% endblock fondo %} 
+ 
+{% block cuerpo %}
+<div class="container" class="fondo">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-12 col-sm-12">
+                
+                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
+                  {% csrf_token %}
+                    <h1 class="centrar letraLo" >Regístrate</h1><br>
+                    <div class="form"></div>
+
+                    <div class="grupo">
+                      <input type="text" name="nombre" id="nombre" value="{{nombre}}"><span class="barra" ></span>
+                      <label for=""><h5>Nombre</h5></label>
+                  </div>
+                    
+                  <div class="grupo">
+                    <input type="text" name="apellido" id="apellido" value="{{apellido}}"><span class="barra" ></span>
+                    <label for=""><h5>Apellido</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <input type="password" name="password" id="password" value="{{password}}" ><span class="barra"></span>
+                  <label for=""><h5>Contraseña</h5></label>
+                </div>
+                <div class="grupo">
+                  <input type="password" name="con_password" id="con_password" value="{{password}}"><span class="barra" ></span>
+                  <label for=""><h5>Confirmar contraseña</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <input type="text" name="email" id="email" value="{{email}}"><span class="barra" ></span>
+                  <label for=""><h5>Correo</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <label>Preguntas</label>
+                 <select class="form-control" name="pregunta" id="pregunta" value="{{preguntas}}" >
+                     {% for x in preguntas %}
+                     <option value="{{ x.id_pregunta }}">{{ x.nombreP }}</option>
+                     {% endfor %}
+                 </select>
+              </div>
+
+                <div class="grupo">
+                  <input type="text" name="respuesta" id="respuesta" value="{{respuesta}}"><span class="barra" ></span>
+                  <label for=""><h5>Respuesta</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <input type="text" name="telefono" id="telefono" value="{{telefono}}"><span class="barra" ></span>
+                  <label for=""><h5>Teléfono móvil</h5></label>
+                </div>
+
+                <div class="grupo">
+                  <input type="date" name="fecha" id="fecha" value="{{fecha}}"><span class="barra" ></span>
+                  <label for=""><h5>Fecha de nacimiento</h5></label>
+                </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1" class="letraLo , cu"><h4>Seleccione una foto de perfil</h4></label>
+                        <h5><input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" id="fotoU" name="fotoU" required></h5>
+                      </div><br>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                      </div>
+                      <div class="col-md-6">
+
+                        <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                      </div>
+                    </div>
+                    <p class="warnings" id="mensaje_register"></p>
+                    <p class="warnings " id="mensaje"></p>
+                    {% if messages %}
+                    <ul   class="messages letraLo">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                    {% endif %}
+                    
+                </form>
+            </div>
+          </div>
+          <br><br>
+    </div>    
+{% endblock cuerpo %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+{% endblock script %}
+    
+{% block validaciones %}
+<script src="{% static 'extension/Validaciones/register.js' %}"></script>
+{% endblock validaciones %}    
+    
+    

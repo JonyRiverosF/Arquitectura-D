@@ -1,0 +1,109 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>Nintendo</title>
+{% endblock titulo %}
+
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+{% endblock fonts %}
+    
+    
+{% block fondo %}
+<body class="fondoN , cuN">
+{% endblock fondo %}
+
+{% block Pantalla %}
+<a class="navbar-brand cuN1" href="{% url 'Pantalla' Nin.idUsuario %}"  style="margin-left: 25px;" >Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+{% endblock Pantalla %}
+
+{% block nintendo %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Nintendo' Nin.idUsuario %}">Nintendo</a>
+</li>
+{% endblock nintendo %}
+    
+{% block Xbox %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuX1" href="{% url 'xbox' Nin.idUsuario %}">Xbox</a>
+</li>
+{% endblock Xbox %}
+    
+{% block Play %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuP1" href="{% url 'Play' Nin.idUsuario %}">PlayStation</a>
+</li>
+{% endblock Play %}
+    
+{% block PC %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' Nin.idUsuario %}">PC</a>
+</li>
+{% endblock PC %}
+    
+{% block Contacto %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' Nin.idUsuario %}">Contactanos</a>
+</li>
+{% endblock Contacto %}
+    
+{% block verperfil %}
+<a class="dropdown-item cuN1" href="{% url 'VerPerfil' Nin.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %}
+    
+{% block Modificarperfil %}
+<a class="dropdown-item cuN1" href="{% url 'ModificarP' Nin.idUsuario %}">Modificar Perfil</a>
+{% endblock Modificarperfil %}
+
+
+
+{% block container %}
+<div class="container">
+        <br>
+        
+        <div class="row centrar">
+            <div class="col-md-12 "><h1 class="letraT">EXCLUSIVOS DE NINTENDO</h1></div>
+        </div><br><br>
+
+        <div class="row">
+            {% for i in juegos3 %}
+                <div class="col-md-3 col-sm-6 centrar">
+                       
+                <a class="cuN1" href="{% url 'Animal' i.id_videojuego %}" >
+                <img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
+                </div>
+            {% endfor %}
+            </div><br><br>
+            <div class="col-md-3 col-sm-6 centrar"></div>
+            <div class="col-md-3 col-sm-6 centrar"></div>
+            <div class="col-md-3 col-sm-6 centrar"></div>
+
+        
+
+        
+            
+
+
+
+
+
+
+
+    </div>
+{% endblock container %}   
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+{% endblock script %}
