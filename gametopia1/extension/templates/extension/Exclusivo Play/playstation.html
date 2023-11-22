@@ -1,0 +1,105 @@
+{% extends 'extension/plantillaMenu.html' %}
+{% load static %}
+
+
+{% block titulo %}
+<title>PlayStation</title>
+{% endblock titulo %}
+
+
+{% block fonts %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
+{% endblock fonts %}
+    
+{% block fondo %}
+<body class="fondoP , cuP">
+{% endblock fondo %}
+
+{% block Pantalla %}
+<a class="navbar-brand" href="{% url 'Pantalla' Pla.idUsuario %}"  style="margin-left: 25px;" >Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+{% endblock Pantalla %}
+
+{% block nintendo %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuN1" href="{% url 'Nintendo' Pla.idUsuario %}">Nintendo</a>
+</li>
+{% endblock nintendo %}
+    
+{% block Xbox %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuX1" href="{% url 'xbox' Pla.idUsuario %}">Xbox</a>
+</li>
+{% endblock Xbox %}
+    
+{% block Play %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuP1" href="{% url 'Play' Pla.idUsuario %}">PlayStation</a>
+</li>
+{% endblock Play %}
+    
+{% block PC %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' Pla.idUsuario %}">PC</a>
+</li>
+{% endblock PC %}
+    
+{% block Contacto %}
+<li class="nav-item active">
+    <a class="nav-link disabled  cuP1" href="{% url 'Contacto' Pla.idUsuario %}">Contactanos</a>
+</li>
+{% endblock Contacto %}
+    
+{% block verperfil %}
+<a class="dropdown-item cuP1" href="{% url 'VerPerfil' Pla.idUsuario %}">Ver perfil</a>
+{% endblock verperfil %}
+    
+{% block Modificarperfil %}
+<a class="dropdown-item cuP1" href="{% url 'ModificarP' Pla.idUsuario %}">Modificar Perfil</a>
+{% endblock Modificarperfil %}
+
+{% block container %}
+<div class="container">
+    <br>
+
+    <div class="row centrar">
+        <div class="col-md-12 "><h1 class="letraT">EXCLUSIVOS DE PLAYSTATION</h1></div>
+    </div><br><br>
+    
+    <div class="row">
+        {% for i in juegos1 %}
+            <div class="col-md-3 col-sm-6 centrar">
+                   
+            <a class="cuP1" href="{% url 'Batman' i.id_videojuego %}" >
+            <img src="{{i.foto.url}}"  alt="sin imagen" class="img"><br><p class="letraX">{{ i.nombreV }}</p></a>
+            </div>
+        {% endfor %}
+        </div><br><br>
+        <div class="col-md-3 col-sm-6 centrar"></div>
+        <div class="col-md-3 col-sm-6 centrar"></div>
+        <div class="col-md-3 col-sm-6 centrar"></div>
+
+        
+
+
+            
+
+
+
+
+    </div>
+{% endblock container %}    
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+crossorigin="anonymous"></script>
+{% endblock script %}
+    
