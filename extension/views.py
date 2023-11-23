@@ -90,7 +90,14 @@ def Olvidado(request):
     return render(request,'extension/olvidado.html')
 
 def VerPerfil(request):
-    return render(request,'extension/ver perfil.html')
+     usuarioinicio=usuario.objects.get(correo=request.user.username)
+     clases=clase.objects.filter(usuario_id_usuario=usuarioinicio.idUsuario)
+     contexto = {
+        "usuario": usuarioinicio,
+        "clases":clases
+        
+    }
+     return render(request,'extension/ver perfil.html', contexto)
 
 def WebServices(request):
     return render(request,'extension/webServices.html')
@@ -133,7 +140,24 @@ def formAgregarJ(request):
     return redirect ('ModificarJuegos')
     
 def formAgregarM(request):
-    return render(request,'extension/Login.html')
+    usuarioinicio= usuario.objects.get(correo= request.user.username)
+    titulo = request.POST['titulo']
+    fecha = request.POST['fecha']
+    hora = request.POST['hora']
+    asignatura = request.POST['asignatura']
+
+    asignaturas = area_conocimiento.objects.get(id_area=asignatura)
+    clase.objects.create(
+        
+        nombreC=titulo,
+        fechaC= fecha,
+        hora=hora,
+        usuario_id_usuario=usuarioinicio,
+        area_id_area = asignaturas,
+        
+         
+    )
+    return render(request,'extension/Modificar.html')
 
 def formAgregarMP(request):
     return render(request,'extension/Login.html')

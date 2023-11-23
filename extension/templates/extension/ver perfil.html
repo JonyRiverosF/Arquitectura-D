@@ -3,7 +3,7 @@
 
 
 {% block titulo %}
-<title>Ver perfil</title>
+<title>perfil profesor</title>
 {% endblock titulo %}
     
 {% block fonts %}
@@ -27,23 +27,31 @@
 
 
   <div class="row">
-    <div class="col-md-4 col-sm-12"></div>
-    <div class="col-md-4 col-sm-12">
-      <div class="flip-card"  >
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="{{ usuarios.fotoU.url }}" alt="Avatar" style="width:300px;height:300px;">
-            </div>
-              <div class="flip-card-back"><br>
-                <br><h4 class="letraLo">{{ usuarios.nombreU }} {{ usuarios.apellido }}</h4> 
-                <h5><p class="letraLo">{{ usuarios.correo }}</p></h5>
-                <h5><p class="letraLo">{{ usuarios.telefono }}</p> </h5>
-                <h5><p class="letraLo">{{ usuarios.fechaU }}</p></h5>
-              </div>
-          </div>
-      </div><br><br><br><br><br> 
+    <div class="col-md-3 col-sm-12"></div>
+    <div class="col-md-6 col-sm-12">
+      <div style="background-color: antiquewhite;">
+        <img class="imagenperfil" src="{{usuario.fotoU.url}}" alt="No foto">
+        <div>
+          {{usuario.nombreU}}
+        </div>
+        <div>
+          {{usuario.correo}}
+        </div>
+        <div>
+          {{usuario.fechaU}}
+        </div>
+        <div>
+          {{usuario.nivel_id_nivel.nombreN}}
+        </div>
+       
+        <a class="" href="{% url 'Modificar'%}"><img
+          style="box-shadow: 0px 0px 0px #fdfdfd;width: 25px;height: 20px;padding: 0;"
+          src=""></a>
+      </div>
+
+     
     </div>
-    <div class="col-md-4 col-sm-12"></div>
+    <div class="col-md-3 col-sm-12"></div>
   </div>
      
           

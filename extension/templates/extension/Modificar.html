@@ -27,50 +27,55 @@
         <div class="row" style="margin-top: 50px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="{% url 'formAgregarM' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  <h1  class="centrar , letraLo ,cu ">Modificar perfil</h1>
+              <form action="{% url 'formAgregarM' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
+                {% csrf_token %}
+                  <h1 class="centrar letraLo" >crear clase</h1><br>
+                  <div class="form"></div>
 
                   <div class="grupo">
-                    <label for="" ><h5 style="color: #2196f3;">Foto actual</h5></label><br>
-                    <img src="{{ olvidado.fotoU.url }}"  alt="Avatar" style="width:150px;height:150px;">
+                    <input type="text" name="titulo" id="nombre"><span class="barra" ></span>
+                    <label for=""><h5>titulo de la clase</h5></label>
+                </div>
+                  
+                
+<div class="grupo">
+                <input type="date" name="fecha" id="fecha"><span class="barra" ></span>
+                <label for=""><h5>Fecha de la clase</h5></label>
+              </div>
+              <div class="grupo">
+                <input type="text" name="hora" id="nombre"><span class="barra" ></span>
+                <label for=""><h5>hora de la clase</h5></label>
+            </div>
+              
+
+            <div class="grupo">
+              <input value="" type="asignatura" name="nombre" id="nombre"><span class="barra" ></span>
+              <label for=""><h5>asignatura</h5></label>
+          </div>
+
+              
+
+        
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="submit" value="crear clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
                     </div>
+                    <div class="col-md-6">
 
-                  <div class="grupo">
-                   <input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" name="fotoP" id="fotoP"  style="color: #2196f3"><span class="barra" ></span>
-                    <label for=""><h5>Cambiar foto de perfil</h5></label>
-                </div>
-                <div class="grupo">
-                  <input type="text" readonly name="emailM" id="emailM" value="{{ olvidado.correo }}"><span class="barra" ></span>
-                  <label for=""><h5>Correo actual</h5></label>
-                </div>
-                    
-                    <h4 class="letraLo , cu" >Cambiar contraseña:</h4>
-                    
-                    <div class="grupo">
-                      <input type="password" name="passwordN"  id="claveN"><span class="barra" ></span>
-                      <label for=""><h5>Contraseña Nueva</h5></label>
+                      <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                    </div>
                   </div>
-                  <div class="grupo">
-                          <input type="password" name="con_passwordM"  id="claveCN"><span class="barra"  ></span>
-                          <label for=""><h5>Confirmar Contraseña</h5></label>
-                      </div>
-
-                    
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
-                      </div>
-                      <div class="col-md-6">
-
-                        <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
-                      </div>
-                    </div><br>
-
-                    <p class="warnings" id="mensaje_modificarP"></p>
-                    
-                </form>
+                  <p class="warnings" id="mensaje_register"></p>
+                  <p class="warnings " id="mensaje"></p>
+                  {% if messages %}
+                  <ul   class="messages letraLo">
+                  {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                  {% endif %}
+                  
+              </form>
             </div></div><br><br>
       
           
