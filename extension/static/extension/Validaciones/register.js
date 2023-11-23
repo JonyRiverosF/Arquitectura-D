@@ -143,35 +143,7 @@ $(document).ready(function(){
             e.preventDefault();
         }
 
-        //validar telefono
-
-
-        if(contacto.trim() == ""){
-            msjMostrar += "<br>-El campo teléfono no puede estar vacío.";
-            enviar = true;
-            e.preventDefault();
-        }
-        
-        if(contacto.trim().length < 9 || contacto.trim().length > 12){
-            msjMostrar += "<br>-El télefono son entre 9 y 11 números.";
-            enviar = true;
-            e.preventDefault();
-        }
-
-        if (contacto.match(/([a-z , A-Z])/)){
-            msjMostrar +="<br>-El campo télefono no permite letras.";
-            enviar = true;
-            e.preventDefault();
-         }
-
-        if (contacto.match(/([!,%,&,@,#,$,^,,?,_,~,.,])/)){
-            msjMostrar += "<br>-El teléfono no permite caracteres especiales";
-            enviar = true;
-            e.preventDefault();
-         }
-
-        
-
+       
         //validar fecha de nacimiento
 
         if(Date.parse(f_nac)){
@@ -214,3 +186,4 @@ $(document).ready(function(){
         }
     }
 });
+

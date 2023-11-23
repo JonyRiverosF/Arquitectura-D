@@ -63,7 +63,15 @@ def Login(request):
     return render(request,'extension/Login.html')
 
 def Modificar(request):
-    return render(request,'extension/Modificar.html')
+    usuarioinicio= usuario.objects.get(correo = request.user.username)
+    area=area_conocimiento.objects.all()
+    contexto = {
+        "usuario":usuarioinicio,
+        "areas":area
+        
+    }
+
+    return render(request,'extension/Modificar.html',contexto)
 
 def eliminarRol(request):
     return redirect('AgregarRP')
@@ -157,7 +165,7 @@ def formAgregarM(request):
         
          
     )
-    return render(request,'extension/Modificar.html')
+    return render(request,'extension/VerPerfil.html')
 
 def formAgregarMP(request):
     return render(request,'extension/Login.html')
@@ -299,7 +307,7 @@ def formSesion(request):
 
             if vRol == 3:
                 login(request,user)
-                return redirect('Pantalla') 
+                return redirect('VerPerfil') 
 
             if vRol == 0:
                 messages.success(request, "Usuario no registrado")

@@ -40,29 +40,41 @@
         <div>
           {{usuario.fechaU}}
         </div>
-        <div>
+        {% if usuario.rol_id_rol.id_rol == 1 %}
+        <div >
           {{usuario.nivel_id_nivel.nombreN}}
         </div>
-       
-        <a class="" href="{% url 'Modificar'%}"><img
-          style="box-shadow: 0px 0px 0px #fdfdfd;width: 25px;height: 20px;padding: 0;"
-          src=""></a>
+        {% else %}
+        <div >
+          {{usuario.area_id_area.nombreA}}
+        </div>
+        {% endif %}
+        {% if usuario.rol_id_rol.id_rol == 3 %}
+        <a class="" href="{% url 'Modificar'%}"><input type="reset" value="Crear clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;"></a>
+        <a class="" href="{% url 'Login'%}"><input type="reset" value="Cerrar Sesión" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;"></a>
+     {% endif %}
       </div>
 
      
     </div>
     <div class="col-md-3 col-sm-12"></div>
   </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      {% for x in clases %}
+      <div class="col-md-4">
+        {{x.nombreC}}
+        {{x.fechaC}}
+        {{x.hora}}
+        {{x.area_id_area.nombreA}}
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-md-2"></div>
+
+  </div>
      
-          
-  
-
-
-
-
-
-
-
 </div>
 {% endblock cuerpo %}
 

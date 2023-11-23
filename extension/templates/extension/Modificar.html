@@ -49,8 +49,18 @@
               
 
             <div class="grupo">
-              <input value="" type="asignatura" name="nombre" id="nombre"><span class="barra" ></span>
+              
               <label for=""><h5>asignatura</h5></label>
+              <select class="form-control" name="asignatura" id="asignatura">
+                {% for x in areas %}
+                {% if x.id_area == usuario.area_id_area.id_area %}
+
+                <option value="{{ x.id_area }}">{{  x.nombreA }}</option>
+               
+                {% endif %}
+                {% endfor %}
+            </select>
+             
           </div>
 
               
