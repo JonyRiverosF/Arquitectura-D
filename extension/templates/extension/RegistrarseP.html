@@ -27,9 +27,9 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
+                <form action="{% url 'formAgregarUP' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
-                    <h1 class="centrar letraLo" >Registro Alumno</h1><br>
+                    <h1 class="centrar letraLo" >Registro Profesor</h1><br>
                     <div class="form"></div>
 
                     <div class="grupo">
@@ -71,10 +71,10 @@
                 </div>
 
                 <div class="grupo">
-                  <label>Nivel academico</label>
-                 <select class="form-control" name="nivel" id="nivel">
-                     {% for x in nivel %}
-                     <option value="{{ x.id_nivel }}">{{ x.nombreN }}</option>
+                  <label>Area de conocimiento</label>
+                 <select class="form-control" name="area" id="area">
+                     {% for x in area %}
+                     <option value="{{ x.id_area }}">{{ x.nombreA }}</option>
                      {% endfor %}
                  </select>
               </div>
@@ -87,6 +87,11 @@
                     <div class="form-group">
                         <label for="exampleFormControlFile1" class="letraLo , cu"><h4>Seleccione una foto de perfil</h4></label>
                         <h5><input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" id="fotoU" name="fotoU" required></h5>
+                      </div><br>
+
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1" class="letraLo , cu"><h4>Seleccione su documentacion</h4></label>
+                        <h5><input  type="file" class="form-control-file , letraLo , cu1" id="fotoD" name="fotoD" required></h5>
                       </div><br>
                     <div class="row">
                       <div class="col-md-6">
@@ -122,6 +127,4 @@ crossorigin="anonymous"></script>
     
 {% block validaciones %}
 <script src="{% static 'extension/Validaciones/register.js' %}"></script>
-{% endblock validaciones %}    
-    
-    
+{% endblock validaciones %}  

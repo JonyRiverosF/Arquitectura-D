@@ -32,16 +32,16 @@ class rol(models.Model):
     
 class usuario(models.Model):
     idUsuario = models.AutoField(primary_key = True, verbose_name='id de usuario')
-    nombreU   = models.CharField(max_length=50, verbose_name='nombre usuario')
+    nombreU   = models.CharField(max_length=50, verbose_name='nombre usuario'  )
     apellido  = models.CharField(max_length=50, verbose_name='apellido usuario')
     correo    = models.EmailField(max_length=254, verbose_name='correo usuario' )
     clave     = models.CharField(max_length=20, verbose_name='clave usuario')
     fotoU     = models.ImageField(upload_to="Foto Perfil")
     fechaU    = models.DateField(verbose_name='Fecha nacimiento')
-    ocumentacion = models.ImageField(upload_to="Foto Documentacion")
+    documentacion = models.ImageField(upload_to="Foto Documentacion", blank=True, null=True )
     respuesta = models.CharField(max_length=250, verbose_name='respuesta usuario')
-    area_id_area = models.ForeignKey(area_conocimiento,on_delete=models.CASCADE)
-    nivel_id_nivel = models.ForeignKey(nivel_academico,on_delete=models.CASCADE)
+    area_id_area = models.ForeignKey(area_conocimiento,on_delete=models.CASCADE, blank=True, null=True)
+    nivel_id_nivel = models.ForeignKey(nivel_academico,on_delete=models.CASCADE, blank=True, null=True )
     pregunta_id_pregunta = models.ForeignKey(pregunta,on_delete=models.CASCADE)
     rol_id_rol = models.ForeignKey(rol,on_delete=models.CASCADE)
 

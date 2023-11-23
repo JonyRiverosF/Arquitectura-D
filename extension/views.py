@@ -31,9 +31,11 @@ def eliminarJuego(request):
 
 def Registrarse(request):
     listaPreguntas = pregunta.objects.all()
+    nivelAcademico = nivel_academico.objects.all()
     
     contexto = {
-        "preguntas": listaPreguntas
+        "preguntas": listaPreguntas,
+        "nivel" :nivelAcademico,
     }
     return render(request,'extension/Registrarse.html',contexto)
 
@@ -46,9 +48,15 @@ def Administrador(request):
 def CambiRol(request):
     return redirect('Administrador')
 
-def Contacto(request):
+def RegistrarseP(request):
+    listaPreguntas = pregunta.objects.all()
+    AreaConocimiento = area_conocimiento.objects.all()
     
-    return render(request,'extension/Contacto.html')
+    contexto = {
+        "preguntas": listaPreguntas,
+        "area" :AreaConocimiento
+    }
+    return render(request,'extension/RegistrarseP.html',contexto)
 
 def Login(request):
     logout(request)
@@ -153,8 +161,9 @@ def formAgregarU(request):
     vRespuesta=request.POST['respuesta']
     contexto["respuesta"]=vRespuesta
 
-    vTelefonoU = request.POST['telefono']
-    contexto["telefono"]=vTelefonoU
+    vNivelA=request.POST['nivel']
+    variableA = nivel_academico.objects.all()
+    contexto["nivel"]=variableA
 
     vFechaU = request.POST['fecha']
     contexto["fecha"]=vFechaU
@@ -171,10 +180,61 @@ def formAgregarU(request):
              return render(request,'extension/Registrarse.html',contexto)
 
     vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
+    vRegistroNivel = nivel_academico.objects.get(id_nivel = vNivelA)
     usuario.objects.create(nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU, correo=vCorreoU, 
-                            telefono=vTelefonoU, fechaU=vFechaU, fotoU=vFotoU, pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta, rol_id_rol=vRegistroRol) 
+                            nivel_id_nivel=vRegistroNivel, fechaU=vFechaU, fotoU=vFotoU, pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta, rol_id_rol=vRegistroRol) 
     
     user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)      
+    return redirect('Login')
+
+def formAgregarUP(request):
+    contexto = {}
+
+    vNombreU = request.POST['nombre']
+    contexto["nombre"]=vNombreU
+
+    vApellidoU = request.POST['apellido']
+    contexto["apellido"]=vApellidoU
+
+    vClaveU = request.POST['password']
+    contexto["password"]=vClaveU
+
+    vCorreoU = request.POST['email']
+    contexto["email"]=vCorreoU
+    
+    vPregunta=request.POST['pregunta']
+    variable = pregunta.objects.all()
+    contexto["preguntas"]=variable
+
+    vRespuesta=request.POST['respuesta']
+    contexto["respuesta"]=vRespuesta
+
+    vAreaC=request.POST['area']
+    variableA = area_conocimiento.objects.all()
+    contexto["area"]=variableA
+
+    vFechaU = request.POST['fecha']
+    contexto["fecha"]=vFechaU
+
+    vFotoU = request.FILES['fotoU']
+
+    vFotoD = request.FILES['fotoD']
+
+    vRol = 3 
+    vRegistroRol = rol.objects.get(id_rol=vRol)
+
+    valida = usuario.objects.all()
+    for forcorreo in valida:
+        if forcorreo.correo == vCorreoU:
+             messages.error(request,"Correo ya existente")
+             return render(request,'extension/Registrarse.html',contexto)
+
+    vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
+    vRegistroArea = area_conocimiento.objects.get(id_area = vAreaC)
+    usuario.objects.create(nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU, correo=vCorreoU, 
+                            area_id_area=vRegistroArea, fechaU=vFechaU, fotoU=vFotoU, documentacion=vFotoD, pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta, rol_id_rol=vRegistroRol) 
+    
+    user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)  
 
     return redirect('Login')
 
@@ -206,12 +266,16 @@ def formSesion(request):
         if user is not None:
             if vRol == 1:
                 login(request,user)
-                return redirect(f'VerPerfil/{vRun}')
+                return redirect('VerPerfil')
                 
 
             if vRol == 2:
                 login(request,user)
-                return redirect('Administrador') 
+                return redirect('Administrador')
+
+            if vRol == 3:
+                login(request,user)
+                return redirect('Pantalla') 
 
             if vRol == 0:
                 messages.success(request, "Usuario no registrado")
@@ -223,7 +287,7 @@ def formSesion(request):
         print(e)
 
 def formComentarioBT(request):
-    return redirect(f'Batman/')
+    return redirect('Batman')
 
 def VerComentarios(request,id):
     return render(request,'extension/VerComentarios.html')
