@@ -21,52 +21,6 @@
 <body class="fondoPP">
 {% endblock fondo %}
 
-{% block Pantalla %}
-<a class="navbar-brand cuN1" href="{% url 'Pantalla' ID %}"  style="margin-left: 25px;" >Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-{% endblock Pantalla %}
-
-{% block nintendo %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Nintendo' ID %}">Nintendo</a>
-</li>
-{% endblock nintendo %}
-
-{% block Xbox %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuX1" href="{% url 'xbox' ID %}">Xbox</a>
-</li>
-{% endblock Xbox %}
-
-{% block Play %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuP1" href="{% url 'Play' ID %}">PlayStation</a>
-</li>
-{% endblock Play %}
-
-{% block PC %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' ID %}">PC</a>
-</li>
-{% endblock PC %}
-
-{% block Contacto %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Contacto' ID %}">Contactanos</a>
-</li>
-{% endblock Contacto %}
-
-{% block verperfil %}
-<a class="dropdown-item cuN1" href="{% url 'VerPerfil' ID %}">Ver perfil</a>
-{% endblock verperfil %}
-
-{% block Modificarperfil %}
-<a class="dropdown-item cuN1" href="{% url 'ModificarP' ID %}">Modificar Perfil</a>
-{% endblock Modificarperfil %}
-
-
 {% block container %}
 <div class="container">
 

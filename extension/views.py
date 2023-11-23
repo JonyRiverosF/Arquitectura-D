@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def Pantalla(request):
+    
     return render(request,'extension/Pantalla.html')
 
 
@@ -29,7 +30,12 @@ def eliminarJuego(request):
     return redirect('ModificarJuegos')
 
 def Registrarse(request):
-    return render(request,'extension/Registrarse.html')
+    listaPreguntas = pregunta.objects.all()
+    
+    contexto = {
+        "preguntas": listaPreguntas
+    }
+    return render(request,'extension/Registrarse.html',contexto)
 
 def CambiarRol(request):
     return render(request,'extension/CambiarRol.html')
@@ -41,6 +47,7 @@ def CambiRol(request):
     return redirect('Administrador')
 
 def Contacto(request):
+    
     return render(request,'extension/Contacto.html')
 
 def Login(request):
@@ -124,10 +131,96 @@ def formAgregarMP(request):
     return render(request,'extension/Login.html')
 
 def formAgregarU(request):
-    return redirect('Registrarse')
+    
+    contexto = {}
+
+    vNombreU = request.POST['nombre']
+    contexto["nombre"]=vNombreU
+
+    vApellidoU = request.POST['apellido']
+    contexto["apellido"]=vApellidoU
+
+    vClaveU = request.POST['password']
+    contexto["password"]=vClaveU
+
+    vCorreoU = request.POST['email']
+    contexto["email"]=vCorreoU
+    
+    vPregunta=request.POST['pregunta']
+    variable = pregunta.objects.all()
+    contexto["preguntas"]=variable
+
+    vRespuesta=request.POST['respuesta']
+    contexto["respuesta"]=vRespuesta
+
+    vTelefonoU = request.POST['telefono']
+    contexto["telefono"]=vTelefonoU
+
+    vFechaU = request.POST['fecha']
+    contexto["fecha"]=vFechaU
+
+    vFotoU = request.FILES['fotoU']
+
+    vRol = 1 
+    vRegistroRol = rol.objects.get(id_rol=vRol)
+
+    valida = usuario.objects.all()
+    for forcorreo in valida:
+        if forcorreo.correo == vCorreoU:
+             messages.error(request,"Correo ya existente")
+             return render(request,'extension/Registrarse.html',contexto)
+
+    vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
+    usuario.objects.create(nombreU=vNombreU, apellido=vApellidoU, clave=vClaveU, correo=vCorreoU, 
+                            telefono=vTelefonoU, fechaU=vFechaU, fotoU=vFotoU, pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta, rol_id_rol=vRegistroRol) 
+    
+    user = User.objects.create_user(vCorreoU,vCorreoU, vClaveU)      
+
+    return redirect('Login')
 
 def formSesion(request):
-    return redirect('Login')
+    try:
+        vCorreo = request.POST['loginEmail']
+        vClave = request.POST['loginPassword']
+        vRol = 0
+        vRun= 0
+        registro = usuario.objects.all()
+
+        
+        for rol in registro:
+            if rol.correo == vCorreo and rol.clave == vClave:
+
+                    vRun = rol.idUsuario
+                    vRol = rol.rol_id_rol.id_rol
+        user1 = User.objects.get(username = vCorreo)
+        print(user1.username)
+        pass_valida = check_password(vClave,user1.password)
+
+        if not pass_valida:
+            messages.error(request,"El usuario o la contraseña son incorrectos")
+            return redirect('Login')
+
+        user = authenticate(username=vCorreo,password = vClave)
+
+        print(user)
+        if user is not None:
+            if vRol == 1:
+                login(request,user)
+                return redirect(f'VerPerfil/{vRun}')
+                
+
+            if vRol == 2:
+                login(request,user)
+                return redirect('Administrador') 
+
+            if vRol == 0:
+                messages.success(request, "Usuario no registrado")
+                return redirect('Login')
+    except User.DoesNotExist:
+            messages.error(request,"El usuario no existe")
+            return redirect('Login')
+    except Exception as e:
+        print(e)
 
 def formComentarioBT(request):
     return redirect(f'Batman/')

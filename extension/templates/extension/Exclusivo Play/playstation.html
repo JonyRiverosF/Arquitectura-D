@@ -20,51 +20,6 @@
 <body class="fondoP , cuP">
 {% endblock fondo %}
 
-{% block Pantalla %}
-<a class="navbar-brand" href="{% url 'Pantalla' Pla.idUsuario %}"  style="margin-left: 25px;" >Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-{% endblock Pantalla %}
-
-{% block nintendo %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuN1" href="{% url 'Nintendo' Pla.idUsuario %}">Nintendo</a>
-</li>
-{% endblock nintendo %}
-    
-{% block Xbox %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuX1" href="{% url 'xbox' Pla.idUsuario %}">Xbox</a>
-</li>
-{% endblock Xbox %}
-    
-{% block Play %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuP1" href="{% url 'Play' Pla.idUsuario %}">PlayStation</a>
-</li>
-{% endblock Play %}
-    
-{% block PC %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuPC1" href="{% url 'Pc' Pla.idUsuario %}">PC</a>
-</li>
-{% endblock PC %}
-    
-{% block Contacto %}
-<li class="nav-item active">
-    <a class="nav-link disabled  cuP1" href="{% url 'Contacto' Pla.idUsuario %}">Contactanos</a>
-</li>
-{% endblock Contacto %}
-    
-{% block verperfil %}
-<a class="dropdown-item cuP1" href="{% url 'VerPerfil' Pla.idUsuario %}">Ver perfil</a>
-{% endblock verperfil %}
-    
-{% block Modificarperfil %}
-<a class="dropdown-item cuP1" href="{% url 'ModificarP' Pla.idUsuario %}">Modificar Perfil</a>
-{% endblock Modificarperfil %}
-
 {% block container %}
 <div class="container">
     <br>
