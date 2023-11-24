@@ -28,6 +28,7 @@
           
                 <form action="{% url 'formSesion' %}" method="POST" id="formlogin" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
+                  <a href="{% url 'Pantalla' %}" ><p style="text-align: left;"><img src="{% static 'extension/img/Perfiles/patraFormal.png' %}" alt="no foto" style="width:34px;height:34px;"></p>
                       <h1 class="centrar letraLo">Iniciar sesión </h1>
                       
                       <div class="grupo">
@@ -39,7 +40,7 @@
                           <label for=""><h5>Contraseña</h5></label>
                       </div>
                       
-                      
+                      <a class="cu1 , centrar" href="{% url 'Registrarse' %}"><p >¿No tienes cuenta Registrate?</p></a>
                     
                       <a class="cu1 , centrar" href="{% url 'Olvidado' %}"><p >¿Olvidaste tu contraseña?</p></a><br>
                     

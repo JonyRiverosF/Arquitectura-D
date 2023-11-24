@@ -23,106 +23,35 @@
      
 {% block cuerpo %}
 <div class="container">
+    <br>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/Sebusca.png' %}" alt="no foto" style="width:300px;height:150px;"></p>
+            </div>
+        </div><br>
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <h5 style="border-radius: 10px;
           background: #ffffffc9;
           padding: auto;
           width: auto;
-          height: auto; color: rgb(0, 0, 0); " class="centrar">GameTopia es una de las mejores páginas de juegos.
-                    Descubre nuestra selección de juegos que convertirán tu navegador en la mejor plataforma de
-                    diversión.
-                    GameTopia es la página de juegos más completa, en la que encontrarás toda la diversión a un clic de
-                    distancia. ¿A qué esperas para explorar?</h5>
+          height: auto; color: rgb(0, 0, 0); " class="centrar">Se busca profe es una de las mejores páginas de enseñanza online.
+                    Descubre nuestro amplio conocimientos en diversas asignaturas e profores que te enseñaran de la comodidad de tus casa.
+                    ¿Qué esperas para explorar?</h5>
             </div>
         </div><br><br>
-
-            <h1 style="margin-top: -17px;padding-top: 20px;background-color: rgba(235, 235, 235, 0.817);text-align: center;">Destacados de cada plataforma</h1><br>
-            <br><br>
-            {% if user.is_authenticated %} 
-                <a class="cuN1" href=""  >
-                    <p class="page-description" style="font-size: x-large;background-color: rgba(253, 2, 2, 0.815);color: rgb(0, 0, 0);text-align: center;">NINTENDO</p>
-                </a>
-            {% else %}                 
-                <a class="cuN1" href=""  >
-                    <p class="page-description" style="font-size: x-large;background-color: rgba(253, 2, 2, 0.815);color: rgb(0, 0, 0);text-align: center;">NINTENDO</p>
-                </a>
-            {% endif %} 
-
-            <div class="row">
-                <div class="col-md-6 col-sm-6 centrar">
-                    <a class="cuN1 img" href="" >
-                    <img src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                </div>
-                <div class="col-md-6 col-sm-6 centrar">
-                    <a class="cuN1 img" href="" >
-                    <img src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                </div>
-            </div>
-                <br><br>
-                {% if user.is_authenticated %} 
-                    <a class="cuX1" href="" >
-                        <p class="page-description" style="font-size: x-large;background-color: rgba(0, 95, 51, 0.815);color: rgb(0, 0, 0);text-align: center;">XBOX</p>
-                    </a>
-                {% else %}                 
-                    <a class="cuX1" href="" >
-                        <p class="page-description" style="font-size: x-large;background-color: rgba(0, 95, 51, 0.815);color: rgb(0, 0, 0);text-align: center;">XBOX</p>
-                    </a>
-                {% endif %} 
-                
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 centrar">
-                            <a class="cuX1" href="" >
-                            <img  src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 centrar">
-                            <a class="cuX1" href="" >
-                            <img   src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                        </div> 
-                    </div>
-                    <br><br>
-                    {% if user.is_authenticated %} 
-                        <a class="cuPC1" href="" >
-                            <p class="page-description" style="font-size: x-large;background-color: rgba(131, 24, 180, 0.719);color: rgb(0, 0, 0);text-align: center;">PC</p>
-                        </a>
-                    {% else %}                 
-                        <a class="cuPC1" href="" >
-                            <p class="page-description" style="font-size: x-large;background-color: rgba(131, 24, 180, 0.719);color: rgb(0, 0, 0);text-align: center;">PC</p>
-                        </a>
-                    {% endif %} 
-                
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 centrar">
-                            <a class="cuPC1" href="" >
-                            <img src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 centrar">
-                            <a class="cuPC1" href="" >
-                            <img src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                        </div>
-                    </div>
-                    <br><br>
-                    {% if user.is_authenticated %} 
-                        <a class="cuP1" href="" >
-                            <p class="page-description" style="font-size: x-large;background-color: rgba(10, 42, 148, 0.815);color: rgb(0, 0, 0);text-align: center;">PLAYSTATION</p>
-                        </a>
-                    {% else %}                 
-                        <a class="cuP1" href="" >
-                            <p class="page-description" style="font-size: x-large;background-color: rgba(10, 42, 148, 0.815);color: rgb(0, 0, 0);text-align: center;">PLAYSTATION</p>
-                        </a>
-                    {% endif %} 
-                        
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 centrar">
-                            <a class="cuP1" href="" >
-                            <img src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 centrar">
-                            <a class="cuP1" href="" >
-                            <img src=""  alt="sin imagen" class="img"><br><p style="color:rgb(0, 0, 0);background-color: rgba(255, 255, 255, 0.872);" class="letraX"></p></a>
-                        </div>   
-                    </div><br>
-
+        <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <a href="{% url 'Login' %}" ><p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/Login.png' %}" alt="no foto" style="width:150px;height:150px;"></p>
+                <input type="submit" value="Ir a login" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);"></a>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <a href="{% url 'Registrarse' %}" ><p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/Registro.jpg' %}" alt="no foto" style="width:150px;height:150px;"></p>
+                <input type="submit" value="Ir a Registro" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);"></a>
+        </div>
+        </div>
+            
+        <br><br><br><br>    
         <p style="text-align: center;background-color: #ffffff;;"><a href="{% url 'WebServices' %}">🢂🢂🢂¿Quieres saber el
                 porque los días son festivos?🢀🢀🢀</a></p><br><br><br>
 

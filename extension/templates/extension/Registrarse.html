@@ -29,6 +29,7 @@
                 
                 <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
+                  <a href="{% url 'Pantalla' %}" ><p style="text-align: left;"><img src="{% static 'extension/img/Perfiles/patraFormal.png' %}" alt="no foto" style="width:55px;height:55px;"></p>
                     <h1 class="centrar letraLo" >Registro Alumno</h1><br>
                     <div class="form"></div>
 
@@ -96,7 +97,9 @@
 
                         <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
                       </div>
+                     
                     </div>
+                    <br><a class="cu1 , centrar" href="{% url 'RegistrarseP' %}"><p style="text-align: center;">Eres profesor registrate como el..</p></a>
                     <p class="warnings" id="mensaje_register"></p>
                     <p class="warnings " id="mensaje"></p>
                     {% if messages %}

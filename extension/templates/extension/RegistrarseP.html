@@ -29,6 +29,7 @@
                 
                 <form action="{% url 'formAgregarUP' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
+                  <a href="{% url 'Pantalla' %}" ><p style="text-align: left;"><img src="{% static 'extension/img/Perfiles/patraFormal.png' %}" alt="no foto" style="width:55px;height:55px;"></p>
                     <h1 class="centrar letraLo" >Registro Profesor</h1><br>
                     <div class="form"></div>
 
