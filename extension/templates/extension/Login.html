@@ -23,12 +23,14 @@
 {% block cuerpo %}
 <div class="container-fluid" class="fondo">
         <div class="row">
-            <div class="col-md-3 col-sm-12"></div>
+            <div class="col-md-3 col-sm-12">
+              
+            </div>
             <div class="col-md-6 col-sm-12" style="margin-top: 80px;">
           
                 <form action="{% url 'formSesion' %}" method="POST" id="formlogin" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
-                  <a href="{% url 'Pantalla' %}" ><p style="text-align: left;"><img src="{% static 'extension/img/Perfiles/patraFormal.png' %}" alt="no foto" style="width:34px;height:34px;"></p>
+                  
                       <h1 class="centrar letraLo">Iniciar sesión </h1>
                       
                       <div class="grupo">
@@ -39,10 +41,13 @@
                           <input type="password" name="loginPassword" id="loginPassword"><span class="barra"></span>
                           <label for=""><h5>Contraseña</h5></label>
                       </div>
+                      <div class="row">
+                        <div class="col-md-6 col-sm-12"><a class="cu1 , centrar" href="{% url 'Registrarse' %}"><p >¿No tienes cuenta Registrate?</p></a></div>
+                        <div class="col-md-6 col-sm-12"><a class="cu1 , centrar" href="{% url 'Olvidado' %}"><p >¿Olvidaste tu contraseña?</p></a></div>
+                      </div>
+
                       
-                      <a class="cu1 , centrar" href="{% url 'Registrarse' %}"><p >¿No tienes cuenta Registrate?</p></a>
-                    
-                      <a class="cu1 , centrar" href="{% url 'Olvidado' %}"><p >¿Olvidaste tu contraseña?</p></a><br>
+                      <a class="cu1 , centrar" href="{% url 'Pantalla' %}"><p style="text-align: center;">Volver a lobby</p></a><br>
                     
                     <div class="row">
                       <div class="col-md-6">

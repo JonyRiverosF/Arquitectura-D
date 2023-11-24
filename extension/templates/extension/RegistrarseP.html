@@ -23,13 +23,16 @@
 {% endblock fondo %} 
  
 {% block cuerpo %}
+
 <div class="container" class="fondo">
+  
+
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-12 col-sm-12">
                 
                 <form action="{% url 'formAgregarUP' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
                   {% csrf_token %}
-                  <a href="{% url 'Pantalla' %}" ><p style="text-align: left;"><img src="{% static 'extension/img/Perfiles/patraFormal.png' %}" alt="no foto" style="width:55px;height:55px;"></p>
+                  
                     <h1 class="centrar letraLo" >Registro Profesor</h1><br>
                     <div class="form"></div>
 
@@ -103,6 +106,7 @@
                         <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
                       </div>
                     </div>
+                    <br><a class="cu1 , centrar" href="{% url 'Pantalla' %}"><p style="text-align: center;">Volver a lobby</p></a>
                     <p class="warnings" id="mensaje_register"></p>
                     <p class="warnings " id="mensaje"></p>
                     {% if messages %}
