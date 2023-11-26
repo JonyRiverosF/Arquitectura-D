@@ -10,6 +10,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+<style>
+  .nombre_manga {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+
+}
+</style>
 {% endblock fonts %}    
 
 {% block fondo %}
@@ -27,12 +35,19 @@
 
 
   <div class="row">
-    <div class="col-md-3 col-sm-12"></div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-1 col-sm-12"></div>
+    <div class="col-md-10 col-sm-12">
       <div style="background-color: antiquewhite;">
-        <img class="imagenperfil" src="{{usuario.fotoU.url}}" alt="No foto">
-        <div>
-          {{usuario.nombreU}}
+        <div class="row">
+          <div class="col-md-4" style="text-align: center;">
+             <img style="width: 200px;height: 200px;margin: 10px;text-align: center;border-radius: 50%;" src="{{usuario.fotoU.url}}" alt="No foto">
+          </div>
+          <div class="col-md-4" style="text-align: left;">
+            <div style="margin: 10px;">
+              
+            
+            <div>
+          {{usuario.nombreU }} {{usuario.apellido }}
         </div>
         <div>
           {{usuario.correo}}
@@ -48,33 +63,59 @@
         <div >
           {{usuario.area_id_area.nombreA}}
         </div>
-        {% endif %}
-        {% if usuario.rol_id_rol.id_rol == 3 %}
-        <a class="" href="{% url 'Modificar'%}"><input type="reset" value="Crear clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;"></a>
+          </div>
+        </div> {% endif %}
+        <div class="col-md-4" >
+          <div style="text-align: center;">
+           {% if usuario.rol_id_rol.id_rol == 3 %}
+        <a class="" href="{% url 'Modificar'%}"><input type="reset" value="Crear clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
+       {% endif %}
+    </div>
+        </div>
+        </div>
+       
+        
+        
         <a class="" href="{% url 'Login'%}"><input type="reset" value="Cerrar Sesión" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;"></a>
-     {% endif %}
+        {% if usuario.rol_id_rol.id_rol == 1 %}
+        <a class="" href="{% url 'AgregarRP'%}"><input type="reset" value="Buscar clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
+       {% endif %}
       </div>
 
      
     </div>
-    <div class="col-md-3 col-sm-12"></div>
+    <div class="col-md-1 col-sm-12"></div>
   </div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      {% for x in clases %}
-      <div class="col-md-4">
-        {{x.nombreC}}
-        {{x.fechaC}}
-        {{x.hora}}
-        {{x.area_id_area.nombreA}}
-      </div>
-      {% endfor %}
-    </div>
-    <div class="col-md-2"></div>
+  <div class="row" style="background-color: gray;margin-top: 20px;">
 
-  </div>
+  {% for x in clases %}
+  <div style="margin-bottom: 10px;margin-top: 10px; background-color: rgb(165, 162, 162);border-radius: 10px;" class="col-md-3"><div class="nombre_manga">
+      titulo: {{x.nombreC}}
+
+    </div>
+    <div class="nombre_manga">
+     fecha: {{x.fechaC}}
+
+    </div>
+  
+    <div class="nombre_manga">
+      hora: {{x.hora}}
+
+    </div>
+    <div class="nombre_manga">
+    area de conociiento: {{x.area_id_area.nombreA}}
+
+    </div>
+    <div class="nombre_manga">
+      <a  href="{% url 'eliminarclase' x.id_clase %}" value="Modificar Perfil" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(119, 163, 113);">eliminar clase</a>
      
+
+     </div>
+     
+   
+  </div>
+   {% endfor %}
+     </div>
 </div>
 {% endblock cuerpo %}
 

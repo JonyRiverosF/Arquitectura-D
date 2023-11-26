@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,formAgregarUP,Agregar,eliminarComentario,formComentarioBT,VerComentarios,eliminarPlata,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,RegistrarseP,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,formAgregarUP,eliminarclase, Agregar,eliminarComentario,formComentarioBT,VerComentarios,eliminarPlata,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,RegistrarseP,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     
@@ -9,6 +9,7 @@ urlpatterns = [
     path('formAgregarUP',formAgregarUP,name="formAgregarUP"),
     path('Administrador',Administrador,name="Administrador"),
     path('Agregar',Agregar,name="Agregar"),
+    path('eliminarclase/<int:codigo>',eliminarclase,name="eliminarclase"),
     path('RegistrarseP',RegistrarseP,name="RegistrarseP"),
     path('Login',Login,name="Login"),
     path('Modificar',Modificar,name="Modificar"),
@@ -39,7 +40,7 @@ urlpatterns = [
     path('CambiarRol', CambiarRol,name="CambiarRol"),
     path('CambiRol', CambiRol,name="CambiRol"),
     path('AgregarRP', AgregarRP,name="AgregarRP"),
-    path('AgregarPla', AgregarPla,name="AgregarPla"),
+    path('AgregarPla/<int:codigo>', AgregarPla,name="AgregarPla"),
     path('FormAgregarR', FormAgregarR,name="FormAgregarR"),
     path('FormAgregarP', FormAgregarP,name="FormAgregarP"),
     path('eliminarRol', eliminarRol,name="eliminarRol"),

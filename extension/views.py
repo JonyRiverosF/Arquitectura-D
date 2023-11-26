@@ -80,10 +80,25 @@ def eliminarPlata(request):
     return redirect('AgregarPla')
 
 def AgregarRP(request):
-    return render(request,'extension/AgregarRP.html')
+    areas=area_conocimiento.objects.all()
+    contexto={
+        "areas": areas
+    }
 
-def AgregarPla(request):
-    return render(request,'extension/AgregarPla.html')
+    return render(request,'extension/AgregarRP.html', contexto)
+
+def AgregarPla(request, codigo):
+    area=area_conocimiento.objects.get(id_area=codigo)
+    clases=clase.objects.filter(area_id_area=area)
+    
+
+   
+    contexto={
+        "clases": clases,
+        "area":area
+    }
+
+    return render(request,'extension/AgregarPla.html',contexto)
 
 def FormAgregarR(request):
     return redirect('AgregarRP')
@@ -106,6 +121,12 @@ def VerPerfil(request):
         
     }
      return render(request,'extension/ver perfil.html', contexto)
+
+def eliminarclase(request, codigo):
+    claseseleccionada=clase.objects.get(id_clase=codigo)
+    claseseleccionada.delete()
+    
+    return redirect('VerPerfil')
 
 def WebServices(request):
     return render(request,'extension/webServices.html')
@@ -165,7 +186,7 @@ def formAgregarM(request):
         
          
     )
-    return render(request,'extension/VerPerfil.html')
+    return redirect('VerPerfil')
 
 def formAgregarMP(request):
     return render(request,'extension/Login.html')
