@@ -80,9 +80,11 @@ def eliminarPlata(request):
     return redirect('AgregarPla')
 
 def AgregarRP(request):
+    usuarioinicio= usuario.objects.get(correo = request.user.username)
     areas=area_conocimiento.objects.all()
     contexto={
-        "areas": areas
+        "areas": areas,
+        "usuario":usuarioinicio
     }
 
     return render(request,'extension/AgregarRP.html', contexto)
@@ -101,6 +103,7 @@ def AgregarPla(request, codigo):
     return render(request,'extension/AgregarPla.html',contexto)
 
 def FormAgregarR(request):
+
     return redirect('AgregarRP')
 
 def FormAgregarP(request):

@@ -22,41 +22,66 @@
 
      
 {% block cuerpo %}
+<div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="{% url 'Login' %}"><h3>Se busca profe</h3></a>
+    <a class="navbar-brand" href="{% url 'Pantalla' %}" style="margin-left: 25px;" >Inicio</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+  
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'Login' %}">Iniciar Sesión<span
+                  class="sr-only">(current)</span></a>
+      </li>
+  
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url 'Registrarse' %}">Registrate como alumno<span
+                      class="sr-only">(current)</span></a>
+          </li>
+  
+          <li class="nav-item active">
+              <a class="nav-link" href="{% url 'RegistrarseP' %}">Registrate como profesor</a>
+          </li>
+      </ul>
+    </nav>
+    </div><br>
+
 <div class="container">
-    <br>
+   
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/Sebusca.png' %}" alt="no foto" style="width:300px;height:150px;"></p>
             </div>
-        </div><br>
+        </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <h5 style="border-radius: 10px;
+                <h4 style="border-radius: 10px;
           background: #ffffffc9;
           padding: auto;
           width: auto;
           height: auto; color: rgb(0, 0, 0); " class="centrar">Se busca profe es una de las mejores páginas de enseñanza online.
                     Descubre nuestro amplio conocimientos en diversas asignaturas e profores que te enseñaran de la comodidad de tus casa.
-                    ¿Qué esperas para explorar?</h5>
+                    ¿Qué esperas para explorar?</h4>
             </div>
         </div><br><br>
+
         <div class="row">
         <div class="col-md-6 col-sm-12">
-            <a href="{% url 'Login' %}" ><p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/Login.png' %}" alt="no foto" style="width:150px;height:150px;"></p>
-                <input type="submit" value="Ir a login" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);"></a>
+            <p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/lobby1.jpg' %}" alt="no foto" style="width:400px;height:400px;"></p>
+            <h3 style="text-align: center;color: rgb(3, 3, 3);background-color: #ffffffc9;">Es una página web multiplataforma en línea que te ayudará a aprender cosas nuevas todos los días.</h3>
         </div>
+
         <div class="col-md-6 col-sm-12">
-            <a href="{% url 'Registrarse' %}" ><p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/Registro.jpg' %}" alt="no foto" style="width:150px;height:150px;"></p>
-                <input type="submit" value="Ir a Registro" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);"></a>
+            <p style="text-align: center;"><img src="{% static 'extension/img/Perfiles/lobby2.jpg' %}" alt="no foto" style="width:400px;height:400px;"></p>
+            <h3 style="text-align: center;color: rgb(3, 3, 3);background-color: #ffffffc9;">Gracias a Se Busca Profe, no tendrás que preocuparte por cursos sin sentido. Aquí podrás elegir las clases en las que quieras participar.</h3>
         </div>
+
         </div>
+        
             
-        <br><br><br><br>    
-        <p style="text-align: center;background-color: #ffffff;;"><a href="{% url 'WebServices' %}">🢂🢂🢂¿Quieres saber el
-                porque los días son festivos?🢀🢀🢀</a></p><br><br><br>
-
-
-
 
 </div>
 {% endblock cuerpo %}

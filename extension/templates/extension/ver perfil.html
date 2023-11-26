@@ -25,6 +25,49 @@
 {% endblock fondo %} 
  
 {% block cuerpo %}
+
+{% if usuario.rol_id_rol.id_rol == 3 %}
+<div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="{% url 'Login' %}"><h3>Se busca profe</h3></a>
+  <a class="navbar-brand" href="{% url 'Modificar' %}" style="margin-left: 25px;" >Crear Clase</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Login' %}">Cerrar Sesión<span
+                class="sr-only">(current)</span></a>
+    </li>
+
+    </ul>
+  </nav>
+  </div><br>
+{% endif %}
+
+{% if usuario.rol_id_rol.id_rol == 1 %}
+<div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="{% url 'Login' %}"><h3>Se busca profe</h3></a>
+  <a class="navbar-brand" href="{% url 'AgregarRP' %}" style="margin-left: 25px;" >Buscar Clase</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Login' %}">Cerrar Sesión<span
+                class="sr-only">(current)</span></a>
+    </li>
+
+    </ul>
+  </nav>
+  </div><br>
+{% endif %}
+
 <div class="container" class="fondo">
 
   <div class="row" >
