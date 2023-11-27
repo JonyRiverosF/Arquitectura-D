@@ -21,10 +21,37 @@
 {% endblock fonts %}    
 
 {% block fondo %}
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 {% endblock fondo %} 
  
 {% block cuerpo %}
+
+{% if usuario.rol_id_rol.id_rol == 1 %}
+<div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a href="{% url 'Login' %}"><h3>Se busca profe</h3></a>
+  <a class="navbar-brand" href="{% url 'VerPerfil' %}" style="margin-left: 25px;" >VerPerfil</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'AgregarRP' %}">Ver materias<span
+                class="sr-only">(current)</span></a>
+    </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'Login' %}">Cerrar Sesión<span
+                class="sr-only">(current)</span></a>
+    </li>
+
+    </ul>
+  </nav>
+  </div><br>
+{% endif %}
+
 <div class="container" class="fondo">
 
   <div class="row" >
@@ -36,7 +63,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <form action="{% url 'formcomentarios' clases.id_clase  %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
+      <form action="{% url 'formcomentarios' clases.id_clase  %}" method="POST" id="formregister" name="formregister" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);"  enctype="multipart/form-data">
         {% csrf_token %}
         <h3 class="centrar letraLo" >Agregar un comentario</h3>
         <div class="grupo">
@@ -49,7 +76,7 @@
     </div>
     <input type="submit" value="subir comentario" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
       </form>
-      <h3 class="centrar letraLo" style="margin-top: 10px;">Comentarios de estudiantes</h3>
+      <h3 class="centrar letraLo" style="margin-top: 10px;color: rgb(254, 254, 254);">Comentarios de estudiantes</h3>
       <table class="table" style="margin-top: 20px;">
         <tr>
           <th>Usuario</th>

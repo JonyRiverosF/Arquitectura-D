@@ -9,16 +9,9 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def Pantalla(request):
-    
     return render(request,'extension/Pantalla.html')
 
-
-def Comentarios(request):
-    return render(request,'extension/Comentarios.html')
-
-
 def ModificarJuegos(request):
-
     return render(request,'extension/ModificarJuegos.html')
 
 def MJuegos(request,id):
@@ -48,12 +41,9 @@ def modiJuegos(request):
     registroPlataM = area_conocimiento.objects.get(id_area = vPlataM)
     ClaseModi.area_id_area = registroPlataM
 
-    
-
     ClaseModi.save()
     return redirect('VerPerfil')
     
-
 def eliminarJuego(request):
     return redirect('ModificarJuegos')
 
@@ -150,9 +140,13 @@ def AgregarRP(request):
 def AgregarPla(request, codigo):
     area=area_conocimiento.objects.get(id_area=codigo)
     clases=clase.objects.filter(area_id_area=area)
+    usuarioinicio= usuario.objects.get(correo = request.user.username)
+    areas=area_conocimiento.objects.all()
     contexto={
         "clases": clases,
-        "area":area
+        "area":area,
+        "areas": areas,
+        "usuario":usuarioinicio
     }
 
     return render(request,'extension/AgregarPla.html',contexto)
@@ -472,14 +466,17 @@ def formComentarioBT(request):
     return redirect('Batman')
 
 def Comentarios(request,codigo):
+    usuarioinicio= usuario.objects.get(correo = request.user.username)
+    area=area_conocimiento.objects.all()
     clases=clase.objects.get(id_clase=codigo)
     comen=comentario.objects.filter(clase_id_clase=clases)
     
     contexto={
         "comentarios":comen,
-        "clases":clases
+        "clases":clases,
+        "usuario":usuarioinicio,
+        "areas":area
     }
-
 
     return render(request,'extension/Comentarios.html',contexto)
 
