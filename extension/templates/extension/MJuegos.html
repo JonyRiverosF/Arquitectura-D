@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>Modificar Juegos</title>
+<title>Modificar Clase</title>
 
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,12 +23,12 @@
    
   </head>
 
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 
 <div class="container">
 
 
-    <form action="{% url 'modiJuegos' %}" method="POST" enctype="multipart/form-data" class="fondoform" name="formulario">
+    <form action="{% url 'modiJuegos' %}" method="POST" enctype="multipart/form-data" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);" name="formulario">
         
         {% csrf_token %}
 

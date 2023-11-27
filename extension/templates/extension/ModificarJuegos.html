@@ -23,13 +23,14 @@
    
   </head>
 
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
+
 
   <div class="container" class="fondo">
     <div class="row" style="margin-top: 50px;">
         <div class="col-md-12 col-sm-12">
             
-            <form action="{% url 'formAgregarJ' %}" method="POST" name="formModificar" id="formModificar" class="fondoform" enctype="multipart/form-data">
+            <form action="{% url 'formAgregarJ' %}" method="POST" name="formModificar" id="formModificar" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);" enctype="multipart/form-data">
               {% csrf_token %}
               <h1  class="centrar , letraLo ,cu ">Modificar perfil</h1>
 

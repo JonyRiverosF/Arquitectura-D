@@ -67,13 +67,43 @@ def Registrarse(request):
     }
     return render(request,'extension/Registrarse.html',contexto)
 
-def CambiarRol(request):
-    return render(request,'extension/CambiarRol.html')
+def CambiarRol(request,id):
+
+    usuariosC = usuario.objects.get(idUsuario = id)
+    rolesC = rol.objects.all()
+
+    contexto={
+        "usuarioCa": usuariosC,
+        "RolesU": rolesC
+    }
+
+    return render(request,'extension/CambiarRol.html',contexto)
 
 def Administrador(request):
-    return render(request,'extension/administrador.html')
+    listaUsuarios = usuario.objects.all()
+    listaRoles = rol.objects.all()
+
+    contexto = {
+        "usuarios": listaUsuarios,
+        "Roles" : listaRoles
+    }
+
+    return render(request,'extension/administrador.html',contexto)
 
 def CambiRol(request):
+    vID = request.POST['IDU']
+    vCorreoC = request.POST['NombreUC']
+    vRolC = request.POST['RolC']
+
+    RolCambiar = usuario.objects.get(idUsuario = vID)
+    RolCambiar.correo = vCorreoC
+    
+    registroRolC = rol.objects.get(id_rol = vRolC)
+    RolCambiar.rol_id_rol = registroRolC
+
+    RolCambiar.save()
+    messages.success(request,"Rol modificado")
+
     return redirect('Administrador')
 
 def RegistrarseP(request):

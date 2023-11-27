@@ -17,7 +17,7 @@
 {% endblock fonts %}    
 
 {% block fondo %}
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 {% endblock fondo %} 
 
 {% block cuerpo %}
@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-6 col-sm-12" style="margin-top: 80px;">
           
-                <form action="{% url 'formSesion' %}" method="POST" id="formlogin" class="fondoform" enctype="multipart/form-data">
+                <form action="{% url 'formSesion' %}" method="POST" id="formlogin" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);" enctype="multipart/form-data">
                   {% csrf_token %}
                   
                       <h1 class="centrar letraLo">Iniciar sesión </h1>

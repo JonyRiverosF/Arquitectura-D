@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>Modificar Juegos</title>
+<title>Cambiar Rol</title>
 
     
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,10 +23,10 @@
    
   </head>
 
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 
     <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="{% url 'Login' %}"><h3>GameTopia</h3></a>
+        <a href="{% url 'Login' %}"><h3>Se busca Profe</h3></a>
         <a class="navbar-brand" href="{% url 'Administrador' %}"  style="margin-left: 25px;" >Usuarios</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,27 +34,7 @@
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-    
-              <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'Comentarios' %}">Comentarios<span
-                          class="sr-only">(current)</span></a>
-              </li>
-    
-              <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'ModificarJuegos' %}">Modificar Juegos</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'Agregar' %}">Agregar Juegos</a>
-              </li>
 
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'AgregarRP' %}">Agregar Rol</a>
-              </li>
-
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'AgregarPla' %}">Agregar Plataforma</a>
-              </li>
-    
               <li class="nav-item active">
                   <a class="nav-link disabled" href="{% url 'Login' %}">Cerrar Sesion</a>
               </li>
@@ -66,14 +46,14 @@
 
 <div class="container">
 
-    <form action="{% url 'CambiRol' %}" method="POST" enctype="multipart/form-data" class="fondoform" name="formulario">
+    <form action="{% url 'CambiRol' %}" method="POST" enctype="multipart/form-data" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);" name="formulario">
         {% csrf_token %}
 
         <h1 class="centrar letraLo">Modificar Rol</h1>
 
         <div class="grupo">
             <label>ID Usuario</label>
-            <input readonly value="{{   usuarioCa.idUsuario }}" type="number" class="form-control" id="IDU" name="IDU">
+            <input readonly value="{{ usuarioCa.idUsuario }}" type="number" class="form-control" id="IDU" name="IDU">
         </div>
 
         <div class="grupo">

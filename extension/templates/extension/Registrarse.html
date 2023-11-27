@@ -19,7 +19,7 @@
 {% endblock fonts %}    
 
 {% block fondo %}
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 {% endblock fondo %} 
  
 {% block cuerpo %}
@@ -54,7 +54,7 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-12 col-sm-12">
                 
-                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" name="formregister" class="fondoform" enctype="multipart/form-data">
+                <form action="{% url 'formAgregarU' %}" method="POST" id="formregister" name="formregister" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);" enctype="multipart/form-data">
                   {% csrf_token %}
                     <h1 class="centrar letraLo" >Registro Alumno</h1><br>
                     <div class="form"></div>
