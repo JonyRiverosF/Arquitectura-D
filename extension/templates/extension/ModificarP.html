@@ -38,7 +38,7 @@
 
             <div class="grupo">
               <label for="" ><h5 style="color: #2196f3;">Foto actual</h5></label><br>
-              <img src="{{ ModificarP.fotoU.url }}"  alt="Avatar" style="width:150px;height:150px;">
+              <img src="{{ usuario.fotoU.url }}"  alt="Avatar" style="width:150px;height:150px;">
               </div>
 
             <div class="grupo">
@@ -47,15 +47,15 @@
           </div>
 
           <div class="grupo">
-            <input type="text" readonly name="emailM" id="emailM" value="{{ ModificarP.correo }}"><span class="barra" ></span>
+            <input type="text" readonly name="emailM" id="emailM" value="{{ usuario.correo }}"><span class="barra" ></span>
             <label for=""><h5>Correo actual</h5></label>
           </div>
           <div class="grupo">
-            <input type="text"  name="nombreM" id="nombreM" value="{{ ModificarP.nombreU }}"><span class="barra" ></span>
+            <input type="text"  name="nombreM" id="nombreM" value="{{ usuario.nombreU }}"><span class="barra" ></span>
             <label for=""><h5>Nombre</h5></label>
           </div>
           <div class="grupo">
-            <input type="text"  name="apellidoM" id="apellidoM" value="{{ ModificarP.apellido }}"><span class="barra" ></span>
+            <input type="text"  name="apellidoM" id="apellidoM" value="{{ usuario.apellido }}"><span class="barra" ></span>
             <label for=""><h5>Apellido</h5></label>
           </div>
           

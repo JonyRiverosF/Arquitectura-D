@@ -164,8 +164,13 @@ def FormAgregarR(request):
 def FormAgregarP(request):
     return redirect('AgregarPla')
 
-def ModificarP(request ):
-    return render(request,'extension/ModificarP.html')
+def ModificarP(request,codigo ):
+    usuarioinicio=usuario.objects.get(idUsuario=codigo)
+    contexto={
+        "usuario":usuarioinicio
+    }
+    
+    return render(request,'extension/ModificarP.html',contexto)
 
 def Olvidado(request):
     listaPreguntas = pregunta.objects.all()
@@ -314,11 +319,9 @@ def formAgregarMP(request):
     u = User.objects.get(username=vCorreo)
     u.save()
 
-    contexto = {
-        "modificarU": listaM
-    } 
+ 
     messages.success(request,"Usuario Modificado") 
-    return render(request,'extension/Login.html',contexto)
+    return redirect('VerPerfil')
 
 def formAgregarU(request):
     

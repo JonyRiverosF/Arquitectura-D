@@ -118,7 +118,7 @@
         </div>
         </div>
        
-        <a class="" href="{% url 'ModificarP'%}"><input type="reset" value="Modificar Perfil" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
+        <a class="" href="{% url 'ModificarP' usuario.idUsuario %}"><input type="reset" value="Modificar Perfil" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
         
         <a class="" href="{% url 'Login'%}"><input type="reset" value="Cerrar Sesión" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;"></a>
         {% if usuario.rol_id_rol.id_rol == 1 %}
