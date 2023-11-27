@@ -7,7 +7,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
 def Pantalla(request):
     return render(request,'extension/Pantalla.html')
 
@@ -209,7 +208,6 @@ def DeadR(request):
 def Animal(request):
     return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html')
     
-
 def BMesa(request):
     return render(request,'extension/Exclusivo PC/BLACK MESA.html')
    
@@ -264,8 +262,7 @@ def formAgregarJ(request):
     }
     messages.success(request,"Usuario Modificado") 
     return render(request,'extension/Login.html',contexto)
-    
-    
+       
 def formAgregarM(request):
     usuarioinicio= usuario.objects.get(correo= request.user.username)
     titulo = request.POST['titulo']
