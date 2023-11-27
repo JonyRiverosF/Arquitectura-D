@@ -18,13 +18,41 @@ def Comentarios(request):
 
 
 def ModificarJuegos(request):
+
     return render(request,'extension/ModificarJuegos.html')
 
 def MJuegos(request,id):
-    return render(request,'extension/MJuegos.html')
+    claseM = clase.objects.get(id_clase = id)
+    usuarioinicio= usuario.objects.get(correo = request.user.username)
+    area=area_conocimiento.objects.all()
+    contexto = {
+        "datos": claseM,
+        "usuario":usuarioinicio,
+        "areas":area
+    }
+    return render(request,'extension/MJuegos.html',contexto)
 
 def modiJuegos(request):
-    return redirect('ModificarJuegos')
+    
+    vIDV = request.POST['idV']
+    vNombreV = request.POST['nombreC']
+    vDesc = request.POST['fechaC']
+    vTrailerV = request.POST['hora']
+    vPlataM = request.POST['plataformaM']
+                  
+    ClaseModi = clase.objects.get(id_clase = vIDV)
+    ClaseModi.nombreC = vNombreV
+    ClaseModi.fechaC = vDesc
+    ClaseModi.hora = vTrailerV
+
+    registroPlataM = area_conocimiento.objects.get(id_area = vPlataM)
+    ClaseModi.area_id_area = registroPlataM
+
+    
+
+    ClaseModi.save()
+    return redirect('VerPerfil')
+    
 
 def eliminarJuego(request):
     return redirect('ModificarJuegos')
@@ -92,9 +120,6 @@ def AgregarRP(request):
 def AgregarPla(request, codigo):
     area=area_conocimiento.objects.get(id_area=codigo)
     clases=clase.objects.filter(area_id_area=area)
-    
-
-   
     contexto={
         "clases": clases,
         "area":area
@@ -109,18 +134,23 @@ def FormAgregarR(request):
 def FormAgregarP(request):
     return redirect('AgregarPla')
 
-def ModificarP(request):
+def ModificarP(request ):
     return render(request,'extension/ModificarP.html')
 
 def Olvidado(request):
-    return render(request,'extension/olvidado.html')
+    listaPreguntas = pregunta.objects.all()
+    contexto = {
+        "preguntas": listaPreguntas
+    }
+    return render(request,'extension/olvidado.html',contexto)
 
 def VerPerfil(request):
      usuarioinicio=usuario.objects.get(correo=request.user.username)
      clases=clase.objects.filter(usuario_id_usuario=usuarioinicio.idUsuario)
+
      contexto = {
         "usuario": usuarioinicio,
-        "clases":clases
+        "clases":clases,
         
     }
      return render(request,'extension/ver perfil.html', contexto)
@@ -163,13 +193,54 @@ def plantillaMenu(request,id):
     return render(request,'extension/plantillaMenu.html')
     
 def formOlvidado(request):
-    return redirect('Olvidado')
+    try: 
+        vPregunta=request.POST['pregunta']
+        vRespuesta=request.POST['respuestas']
+        vCorreo=request.POST['emailO']
+        vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
+        vVariable = usuario.objects.get(pregunta_id_pregunta=vRegistroPregunta, respuesta=vRespuesta,correo=vCorreo) 
+    
+
+        contexto ={ 
+            "olvidado":vVariable
+
+        }
+
+        if vRespuesta==vVariable.respuesta:
+            return render(request,'extension/ModificarJuegos.html',contexto)
+        else: formAgregarMP
+        return redirect('Login')
+    except usuario.DoesNotExist:
+        messages.error(request, "No hay coincidencias ")
+        return redirect('Olvidado')
 
 def Agregar(request):
     return render(request,'extension/AgregarJuego.html')
 
 def formAgregarJ(request):
-    return redirect ('ModificarJuegos')
+    vClaveN = request.POST['passwordN']
+    vCorreo = request.POST['emailM']
+    
+    
+    listaM = usuario.objects.get(correo=vCorreo) 
+
+
+    if vClaveN !='':
+        listaM.clave=vClaveN
+
+    listaM.save()
+
+
+    u = User.objects.get(username=vCorreo)
+    u.set_password(vClaveN)
+    u.save()
+
+    contexto = {
+        "modificarU": listaM
+    }
+    messages.success(request,"Usuario Modificado") 
+    return render(request,'extension/Login.html',contexto)
+    
     
 def formAgregarM(request):
     usuarioinicio= usuario.objects.get(correo= request.user.username)
@@ -192,7 +263,32 @@ def formAgregarM(request):
     return redirect('VerPerfil')
 
 def formAgregarMP(request):
-    return render(request,'extension/Login.html')
+    vNombre = request.POST['nombreM']
+    vApellido = request.POST['apellidoM']
+    vCorreo = request.POST['emailM']
+    vFotoM = request.FILES.get('fotoMP', '')
+    
+    listaM = usuario.objects.get(correo=vCorreo) 
+
+    if vNombre !='':
+        listaM.nombreU=vNombre
+    
+    if vApellido !='':
+        listaM.apellido=vApellido
+
+    if vFotoM!='':
+        listaM.fotoU=vFotoM
+
+    listaM.save()
+
+    u = User.objects.get(username=vCorreo)
+    u.save()
+
+    contexto = {
+        "modificarU": listaM
+    } 
+    messages.success(request,"Usuario Modificado") 
+    return render(request,'extension/Login.html',contexto)
 
 def formAgregarU(request):
     

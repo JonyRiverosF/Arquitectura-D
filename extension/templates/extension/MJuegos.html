@@ -25,45 +25,6 @@
 
 <body class="fondoPP">
 
-    <div><nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="{% url 'Login' %}"><h3>GameTopia</h3></a>
-        <a class="navbar-brand" href="{% url 'Administrador' %}"  style="margin-left: 25px;" >Usuarios</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-    
-              <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'Comentarios' %}">Comentarios<span
-                          class="sr-only">(current)</span></a>
-              </li>
-    
-              <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'ModificarJuegos' %}">Modificar Juegos</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'Agregar' %}">Agregar Juegos</a>
-              </li>
-
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'AgregarRP' %}">Agregar Rol</a>
-              </li>
-
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'AgregarPla' %}">Agregar Plataforma</a>
-              </li>
-    
-              <li class="nav-item active">
-                  <a class="nav-link disabled" href="{% url 'Login' %}">Cerrar Sesion</a>
-              </li>
-            
-          </ul>
-          
-        </nav>
-        </div><br>
-
 <div class="container">
 
 
@@ -71,53 +32,35 @@
         
         {% csrf_token %}
 
-        <h1 class="centrar letraLo">Modificar Juego </h1>
+        <h1 class="centrar letraLo">Modificar Clase </h1>
 
         <div class="grupo">
-            <label for="" ><h5 style="color: #2196f3;">Foto actual</h5></label><br>
-            <img src="{{ datos.foto.url }}"  alt="Avatar" style="width:150px;height:150px;">
-            </div>
-
-          <div class="grupo">
-           <input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" name="fotoMV" id="fotoMV" style="color: #2196f3"><span class="barra" ></span>
-            <label for=""><h5>Cambiar foto de perfil</h5></label>
+            <label>ID Clase</label>
+            <input readonly value="{{ datos.id_clase }}" type="number" class="form-control" id="idV" name="idV">
         </div>
 
         <div class="grupo">
-            <label>ID Videojuego</label>
-            <input readonly value="{{ datos.id_videojuego }}" type="number" class="form-control" id="idV" name="idV">
+            <label>Titulo</label>
+            <input type="text" class="form-control"  required value="{{ datos.nombreC }}" id="nombreC" name="nombreC"><span class="barra" ></span>
         </div>
 
         <div class="grupo">
-            <label>Nombre</label>
-            <input type="text" class="form-control"  required value="{{ datos.nombreV }}" id="nombreV" name="nombreV"><span class="barra" ></span>
+            <label>Fecha</label>
+            <input type="date" class="form-control" required value="{{ datos.fechaC }}" id="fechaC" name="fechaC">
         </div>
 
         <div class="grupo">
-            <label>Descripción</label>
-            <input type="text" class="form-control" required value="{{ datos.descripcion }}" id="descripcion" name="descripcion">
+            <label>hora</label>
+            <input type="text" class="form-control" required value="{{ datos.hora }}" id="hora" name="hora">
         </div>
-
         <div class="grupo">
-            <label>Trailer</label>
-            <input type="text" class="form-control" required value="{{ datos.trailer }}" id="trailer" name="trailer">
-        </div>
-
-        <div class="grupo">
-            <label>Tienda de videojuego</label>
-            <input type="text" class="form-control" required value="{{ datos.link }}" id="link" name="link">
-        </div>
-
-        <div class="grupo">
-            <label>Plataforma</label>
+            <label>Area Conocimiento</label>
            <select class="form-control" name="plataformaM" required id="plataformaM">
-                {% for r in lista_plataformas %}
-                    {% if r.id_plataforma == datos.plataforma.id_plataforma %}
-                        <option value="{{ r.id_plataforma }}" selected>{{ r.nombrePLA }}</option>
-                    {% else %}
-                        <option value="{{ r.id_plataforma }}">{{ r.nombrePLA }}</option>
-                    {% endif %}
-                {% endfor %}
+            {% for x in areas %}
+            {% if x.id_area == usuario.area_id_area.id_area %}
+            <option value="{{ x.id_area }}">{{  x.nombreA }}</option>
+            {% endif %}
+            {% endfor %}
            </select>
         </div>
         <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">

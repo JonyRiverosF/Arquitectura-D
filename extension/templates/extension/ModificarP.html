@@ -24,61 +24,60 @@
 
     
 {% block cuerpo %}
+
+
 <div class="container" class="fondo">
-        <div class="row" style="margin-top: 50px;">
-            <div class="col-md-12 col-sm-12">
-                
-                <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" enctype="multipart/form-data">
-                  
-                  {% csrf_token %}
-
-                  <h1  class="centrar , letraLo ,cu ">Modificar perfil</h1>
-
-                  <div class="grupo">
-                    <label for="" ><h5 style="color: #2196f3;">Foto actual</h5></label><br>
-                    <img src="{{ ModificarP.fotoU.url }}"  alt="Avatar" style="width:150px;height:150px;">
-                    </div>
-
-                  <div class="grupo">
-                   <input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" name="fotoMP" id="fotoMP" style="color: #2196f3"><span class="barra" ></span>
-                    <label for=""><h5>Cambiar foto de perfil</h5></label>
-                </div>
-
-                <div class="grupo">
-                  <input type="text" readonly name="emailM" id="emailM" value="{{ ModificarP.correo }}"><span class="barra" ></span>
-                  <label for=""><h5>Correo actual</h5></label>
-                </div>
-                    
-                    <h4 class="letraLo , cu" >Cambiar contraseña:</h4>
-
-                    <div class="grupo">
-                      <input type="password" name="claveN"  id="claveN"><span class="barra" ></span>
-                      <label for=""><h5>Contraseña Nueva</h5></label>
-                  </div>
-                  <div class="grupo">
-                          <input type="password" name="claveCN"  id="claveCN"><span class="barra"  ></span>
-                          <label for=""><h5>Confirmar Contraseña</h5></label>
-                      </div>
-
-                    
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
-                      </div>
-                      <div class="col-md-6">
-
-                        <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
-                      </div>
-                    </div><br>
-
-                    <p class="warnings" id="mensaje_modificarP"></p>
-                    
-                </form>
-            </div></div><br><br>
-      
+  <div class="row" style="margin-top: 50px;">
+      <div class="col-md-12 col-sm-12">
           
-    </div>    
+          <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+
+            <h1  class="centrar , letraLo ,cu ">Modificar perfil</h1>
+
+            <div class="grupo">
+              <label for="" ><h5 style="color: #2196f3;">Foto actual</h5></label><br>
+              <img src="{{ ModificarP.fotoU.url }}"  alt="Avatar" style="width:150px;height:150px;">
+              </div>
+
+            <div class="grupo">
+             <input accept="image/png,image/jpeg" type="file" class="form-control-file , letraLo , cu1" name="fotoMP" id="fotoMP" style="color: #2196f3"><span class="barra" ></span>
+              <label for=""><h5>Cambiar foto de perfil</h5></label>
+          </div>
+
+          <div class="grupo">
+            <input type="text" readonly name="emailM" id="emailM" value="{{ ModificarP.correo }}"><span class="barra" ></span>
+            <label for=""><h5>Correo actual</h5></label>
+          </div>
+          <div class="grupo">
+            <input type="text"  name="nombreM" id="nombreM" value="{{ ModificarP.nombreU }}"><span class="barra" ></span>
+            <label for=""><h5>Nombre</h5></label>
+          </div>
+          <div class="grupo">
+            <input type="text"  name="apellidoM" id="apellidoM" value="{{ ModificarP.apellido }}"><span class="barra" ></span>
+            <label for=""><h5>Apellido</h5></label>
+          </div>
+          
+              
+
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="submit" value="Enviar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                </div>
+                <div class="col-md-6">
+
+                  <input type="reset" value="Limpiar" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;">
+                </div>
+              </div><br>
+
+              <p class="warnings" id="mensaje_modificarP"></p>
+              
+          </form>
+      </div></div><br><br>
+
+</div>
+  
 {% endblock cuerpo %}
     
 {% block script %}

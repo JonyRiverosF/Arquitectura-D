@@ -34,6 +34,11 @@
             <div class="form">
                 <h1 class="centrar letraLo">¿Olvidaste tu contraseña?</h1>
                 <div class="grupo">
+                    <input type="text" name="emailO" id="emailO"><span class="barra"  ></span>
+                    <label for=""><h5>Correo:</h5></label>
+                </div>
+                
+                <div class="grupo">
                     <label>Preguntas de seguridad</label>
                    <select class="form-control" name="pregunta" id="pregunta">
                        {% for x in preguntas %}

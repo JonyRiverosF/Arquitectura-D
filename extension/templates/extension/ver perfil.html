@@ -110,6 +110,7 @@
         </div> {% endif %}
         <div class="col-md-4" >
           <div style="text-align: center;">
+            
            {% if usuario.rol_id_rol.id_rol == 3 %}
         <a class="" href="{% url 'Modificar'%}"><input type="reset" value="Crear clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
        {% endif %}
@@ -117,11 +118,12 @@
         </div>
         </div>
        
-        
+        <a class="" href="{% url 'ModificarP'%}"><input type="reset" value="Modificar Perfil" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
         
         <a class="" href="{% url 'Login'%}"><input type="reset" value="Cerrar Sesión" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97); margin-left: auto;"></a>
         {% if usuario.rol_id_rol.id_rol == 1 %}
-        <a class="" href="{% url 'AgregarRP'%}"><input type="reset" value="Buscar clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0; "></a>
+        
+        <a class="" href="{% url 'AgregarRP'%}"><input type="reset" value="Buscar clase" class="btn btn letraLo" style="text-align: center; color: rgb(255, 255, 255); background-color: rgb(97, 97, 97);margin: 80px 10px 0 0;margin-top: -5px; "></a>
        {% endif %}
       </div>
 
@@ -150,6 +152,7 @@
 
     </div>
     <div class="nombre_manga">
+      <a  href="{% url 'MJuegos' x.id_clase %}" value="Modificar Perfil" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(119, 163, 113);">Modificar Clase</a>
       <a  href="{% url 'eliminarclase' x.id_clase %}" value="Modificar Perfil" class="btn btn" style="color: rgb(255, 255, 255); background-color: rgb(119, 163, 113);">eliminar clase</a>
      
 
