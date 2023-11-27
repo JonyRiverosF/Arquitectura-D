@@ -19,7 +19,7 @@
 {% endblock fonts %}    
 
 {% block fondo %}
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 {% endblock fondo %} 
     
     
@@ -29,7 +29,7 @@
         <div class="col-md-3 col-sm-3"></div>
         <div class="col-md-6 col-sm-6" style="margin-top: 80px;">
 
-          <form action="{% url 'formOlvidado' %}" method="POST" name="formOlvidado" id="formOlvidado" class="fondoform">
+          <form action="{% url 'formOlvidado' %}" method="POST" name="formOlvidado" id="formOlvidado" style="background-color: rgba(244, 241, 241, 0.979);" class="fondoform">
             {% csrf_token %}
             <div class="form">
                 <h1 class="centrar letraLo">¿Olvidaste tu contraseña?</h1>

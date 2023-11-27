@@ -19,7 +19,7 @@
 {% endblock fonts %}    
 
 {% block fondo %}
-<body class="fondoPP">
+<body style="background-image: url(../../static/extension/img/PantallaPrincipal/fondo3.jpg) ;background-repeat: no-repeat;background-size:cover;">
 {% endblock fondo %}
 
     
@@ -30,7 +30,7 @@
   <div class="row" style="margin-top: 50px;">
       <div class="col-md-12 col-sm-12">
           
-          <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" enctype="multipart/form-data">
+          <form action="{% url 'formAgregarMP' %}" method="POST" name="formModificar" id="formModificarP" class="fondoform" style="background-color: rgba(244, 241, 241, 0.979);" enctype="multipart/form-data">
             
             {% csrf_token %}
 
