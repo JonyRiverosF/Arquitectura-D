@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,formAgregarUP,eliminarclase,Comentarios, Agregar,formcomentarios,formComentarioBT,eliminarPlata,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,RegistrarseP,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,formAgregarUP,eliminarclase,Comentarios,formcomentarios,AgregarPla,CambiRol,AgregarRP,CambiarRol,modiJuegos,MJuegos,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,RegistrarseP,Login,Modificar,Olvidado,VerPerfil,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     
@@ -8,22 +8,12 @@ urlpatterns = [
     path('Registrarse',Registrarse,name="Registrarse"),
     path('formAgregarUP',formAgregarUP,name="formAgregarUP"),
     path('Administrador',Administrador,name="Administrador"),
-    path('Agregar',Agregar,name="Agregar"),
     path('eliminarclase/<int:codigo>',eliminarclase,name="eliminarclase"),
     path('RegistrarseP',RegistrarseP,name="RegistrarseP"),
     path('Login',Login,name="Login"),
     path('Modificar',Modificar,name="Modificar"),
     path('Olvidado',Olvidado,name="Olvidado"),
     path('VerPerfil',VerPerfil,name="VerPerfil"),
-    path('WebServices',WebServices,name="WebServices"),
-    path('xbox',xbox,name="xbox"),
-    path('Play',Play,name="Play"),
-    path('Pc',Pc,name="Pc"),
-    path('Nintendo',Nintendo,name="Nintendo"),
-    path('Batman',Batman,name="Batman"),
-    path('DeadR' ,DeadR,name="DeadR"),
-    path('Animal',Animal,name="Animal"),
-    path('BMesa',BMesa,name="BMesa"),
     path('plantillaMenu',plantillaMenu,name="plantillaMenu"),
     path('formAgregarJ', formAgregarJ,name="formAgregarJ"),
     path('formAgregarU', formAgregarU,name="formAgregarU"),
@@ -36,16 +26,10 @@ urlpatterns = [
     path('MJuegos/<int:id>', MJuegos,name="MJuegos"),
     path('ModificarJuegos', ModificarJuegos,name="ModificarJuegos"),
     path('modiJuegos', modiJuegos,name="modiJuegos"),
-    path('eliminarJuego', eliminarJuego,name="eliminarJuego"),
     path('CambiarRol/<int:id>', CambiarRol,name="CambiarRol"),
     path('CambiRol', CambiRol,name="CambiRol"),
     path('AgregarRP', AgregarRP,name="AgregarRP"),
     path('AgregarPla/<int:codigo>', AgregarPla,name="AgregarPla"),
-    path('FormAgregarR', FormAgregarR,name="FormAgregarR"),
-    path('FormAgregarP', FormAgregarP,name="FormAgregarP"),
-    path('eliminarRol', eliminarRol,name="eliminarRol"),
-    path('eliminarPlata', eliminarPlata,name="eliminarPlata"),
-    
     path('formcomentarios/<int:codigo>', formcomentarios,name="formcomentarios"),
-    path('formComentarioBT', formComentarioBT,name="formComentarioBT"),
+    
 ]

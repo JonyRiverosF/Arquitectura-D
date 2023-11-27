@@ -25,7 +25,6 @@ def MJuegos(request,id):
     return render(request,'extension/MJuegos.html',contexto)
 
 def modiJuegos(request):
-    
     vIDV = request.POST['idV']
     vNombreV = request.POST['nombreC']
     vDesc = request.POST['fechaC']
@@ -43,9 +42,6 @@ def modiJuegos(request):
     ClaseModi.save()
     return redirect('VerPerfil')
     
-def eliminarJuego(request):
-    return redirect('ModificarJuegos')
-
 def Registrarse(request):
     listaPreguntas = pregunta.objects.all()
     nivelAcademico = nivel_academico.objects.all()
@@ -112,28 +108,22 @@ def Login(request):
 def Modificar(request):
     usuarioinicio= usuario.objects.get(correo = request.user.username)
     area=area_conocimiento.objects.all()
+
     contexto = {
         "usuario":usuarioinicio,
         "areas":area
         
     }
-
     return render(request,'extension/Modificar.html',contexto)
-
-def eliminarRol(request):
-    return redirect('AgregarRP')
-
-def eliminarPlata(request):
-    return redirect('AgregarPla')
 
 def AgregarRP(request):
     usuarioinicio= usuario.objects.get(correo = request.user.username)
     areas=area_conocimiento.objects.all()
+
     contexto={
         "areas": areas,
         "usuario":usuarioinicio
     }
-
     return render(request,'extension/AgregarRP.html', contexto)
 
 def AgregarPla(request, codigo):
@@ -141,21 +131,14 @@ def AgregarPla(request, codigo):
     clases=clase.objects.filter(area_id_area=area)
     usuarioinicio= usuario.objects.get(correo = request.user.username)
     areas=area_conocimiento.objects.all()
+
     contexto={
         "clases": clases,
         "area":area,
         "areas": areas,
         "usuario":usuarioinicio
     }
-
     return render(request,'extension/AgregarPla.html',contexto)
-
-def FormAgregarR(request):
-
-    return redirect('AgregarRP')
-
-def FormAgregarP(request):
-    return redirect('AgregarPla')
 
 def ModificarP(request,codigo ):
     usuarioinicio=usuario.objects.get(idUsuario=codigo)
@@ -188,33 +171,6 @@ def eliminarclase(request, codigo):
     claseseleccionada.delete()
     
     return redirect('VerPerfil')
-
-def WebServices(request):
-    return render(request,'extension/webServices.html')
-
-def xbox(request):
-  return render(request,'extension/Exclusivo Xbox/xbox.html')
-
-def Play(request):
-    return render(request,'extension/Exclusivo Play/playstation.html')
-
-def Pc(request):
-    return render(request,'extension/Exclusivo PC/pc.html')
- 
-def Nintendo(request):
-    return render(request,'extension/Exclusivo Nintendo/nintendo.html')
-    
-def Batman(request):
-    return render(request,'extension/Exclusivo Play/BATMAN_ARKHAM_KNIGHT.html')
-
-def DeadR(request):
-    return render(request,'extension/Exclusivo Xbox/deadrising.html')
-
-def Animal(request):
-    return render(request,'extension/Exclusivo Nintendo/ANIMAL CROSSING.html')
-    
-def BMesa(request):
-    return render(request,'extension/Exclusivo PC/BLACK MESA.html')
    
 def plantillaMenu(request,id):
     return render(request,'extension/plantillaMenu.html')
@@ -240,9 +196,6 @@ def formOlvidado(request):
     except usuario.DoesNotExist:
         messages.error(request, "No hay coincidencias ")
         return redirect('Olvidado')
-
-def Agregar(request):
-    return render(request,'extension/AgregarJuego.html')
 
 def formAgregarJ(request):
     vClaveN = request.POST['passwordN']
@@ -403,7 +356,7 @@ def formAgregarUP(request):
     for forcorreo in valida:
         if forcorreo.correo == vCorreoU:
              messages.error(request,"Correo ya existente")
-             return render(request,'extension/Registrarse.html',contexto)
+             return render(request,'extension/RegistrarseP.html',contexto)
 
     vRegistroPregunta = pregunta.objects.get(id_pregunta = vPregunta)
     vRegistroArea = area_conocimiento.objects.get(id_area = vAreaC)
@@ -462,9 +415,6 @@ def formSesion(request):
     except Exception as e:
         print(e)
 
-def formComentarioBT(request):
-    return redirect('Batman')
-
 def Comentarios(request,codigo):
     usuarioinicio= usuario.objects.get(correo = request.user.username)
     area=area_conocimiento.objects.all()
@@ -477,7 +427,6 @@ def Comentarios(request,codigo):
         "usuario":usuarioinicio,
         "areas":area
     }
-
     return render(request,'extension/Comentarios.html',contexto)
 
 def formcomentarios(request,codigo):
@@ -487,15 +436,9 @@ def formcomentarios(request,codigo):
     nota = request.POST['nota']
     
     comentario.objects.create(
-        
         comentarios=comen,
         nota= nota,
         usuario_id_usuario=usuarioinicio,
-        clase_id_clase = clases,
-        
-         
+        clase_id_clase = clases,  
     )
     return redirect('Comentarios',codigo)
-
-def eliminarComentario(request,id):
-    return redirect('Comentarios')
