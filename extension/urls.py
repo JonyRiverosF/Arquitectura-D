@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import Pantalla,formAgregarUP,eliminarclase, Agregar,eliminarComentario,formComentarioBT,VerComentarios,eliminarPlata,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,RegistrarseP,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
+from .views import Pantalla,formAgregarUP,eliminarclase,Comentarios, Agregar,formcomentarios,formComentarioBT,eliminarPlata,AgregarPla,FormAgregarP,eliminarRol,CambiRol,FormAgregarR,AgregarRP,CambiarRol,modiJuegos,MJuegos,eliminarJuego,Comentarios,ModificarJuegos,formAgregarMP,ModificarP,formAgregarM,formOlvidado,formSesion,Registrarse,formAgregarU,Administrador,RegistrarseP,Login,Modificar,Olvidado,VerPerfil,WebServices,xbox,Play,Pc,Nintendo,Batman,DeadR,Animal,BMesa,plantillaMenu,formAgregarJ
 
 urlpatterns = [
     
@@ -32,7 +32,7 @@ urlpatterns = [
     path('formAgregarM', formAgregarM,name="formAgregarM"),
     path('ModificarP', ModificarP,name="ModificarP"),
     path('formAgregarMP', formAgregarMP,name="formAgregarMP"),
-    path('Comentarios', Comentarios,name="Comentarios"),
+    path('Comentarios/<int:codigo>', Comentarios,name="Comentarios"),
     path('MJuegos/<int:id>', MJuegos,name="MJuegos"),
     path('ModificarJuegos', ModificarJuegos,name="ModificarJuegos"),
     path('modiJuegos', modiJuegos,name="modiJuegos"),
@@ -45,7 +45,7 @@ urlpatterns = [
     path('FormAgregarP', FormAgregarP,name="FormAgregarP"),
     path('eliminarRol', eliminarRol,name="eliminarRol"),
     path('eliminarPlata', eliminarPlata,name="eliminarPlata"),
-    path('VerComentarios', VerComentarios,name="VerComentarios"),
-    path('eliminarComentario', eliminarComentario,name="eliminarComentario"),
+    
+    path('formcomentarios/<int:codigo>', formcomentarios,name="formcomentarios"),
     path('formComentarioBT', formComentarioBT,name="formComentarioBT"),
 ]

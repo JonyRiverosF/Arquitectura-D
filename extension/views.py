@@ -441,8 +441,34 @@ def formSesion(request):
 def formComentarioBT(request):
     return redirect('Batman')
 
-def VerComentarios(request,id):
-    return render(request,'extension/VerComentarios.html')
+def Comentarios(request,codigo):
+    clases=clase.objects.get(id_clase=codigo)
+    comen=comentario.objects.filter(clase_id_clase=clases)
+    
+    contexto={
+        "comentarios":comen,
+        "clases":clases
+    }
+
+
+    return render(request,'extension/Comentarios.html',contexto)
+
+def formcomentarios(request,codigo):
+    usuarioinicio= usuario.objects.get(correo= request.user.username)
+    clases=clase.objects.get(id_clase=codigo)
+    comen = request.POST['comentario']
+    nota = request.POST['nota']
+    
+    comentario.objects.create(
+        
+        comentarios=comen,
+        nota= nota,
+        usuario_id_usuario=usuarioinicio,
+        clase_id_clase = clases,
+        
+         
+    )
+    return redirect('Comentarios',codigo)
 
 def eliminarComentario(request,id):
     return redirect('Comentarios')
